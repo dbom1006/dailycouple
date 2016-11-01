@@ -4,6 +4,14 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="background_avatar">#DDD</color>
-    <color name="header">#E91E63</color>
-    <color name="heart">#FF80AB</color>
+    <color name="header">#ED939D</color>
+    <color name="heart">#EBE1E2</color>
+    <color name="text_event">#557780</color>
+    <color name="text_event_name">#EBE1E2</color>
+    <color name="text_event_day">#F0C2C2</color>
+    <color name="primary">#D95058</color>
+    <color name="level1">#ED939D</color>
+    <color name="level2">#F0C2C2</color>
+    <color name="level3">#EBE1E2</color>
+    <color name="dark">#557780</color>
 </resources>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LoveApp</string>
+    <string name="event_name">Noel</string>
+    <string name="event_day">24-12-2016</string>
 </resources>
