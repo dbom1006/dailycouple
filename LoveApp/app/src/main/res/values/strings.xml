@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">LoveApp</string>
+    <string name="Input">Set birthday</string>
+    <string name="Input_Name">Input name</string>
+    <string name="OK">DONE</string>
 </resources>
