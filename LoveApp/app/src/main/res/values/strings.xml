@@ -1,11 +1,8 @@
 <resources>
     <string name="app_name">LoveApp</string>
-<<<<<<< HEAD
     <string name="Input">Set birthday</string>
     <string name="Input_Name">Input name</string>
     <string name="OK">DONE</string>
-=======
     <string name="event_name">Noel</string>
     <string name="event_day">24-12-2016</string>
->>>>>>> 45f9af6efe83d1dc7a3acaadbbb05e7358d62247
 </resources>

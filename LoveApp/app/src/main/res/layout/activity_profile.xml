@@ -1,155 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    tools:context="com.cntt.dbom.loveapp.ProfileActivity"
-    android:clickable="false"
     >
-
     <LinearLayout
-        android:orientation="horizontal"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.cntt.dbom.loveapp.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            app:civ_border_width="1dp"
-            app:civ_border_color="#FFF"
-            android:id="@+id/image_avatar_man"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/avatar_man"
-            android:layout_weight="1"
-            />
-        <TextView
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-        <com.cntt.dbom.loveapp.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            app:civ_border_width="1dp"
-            app:civ_border_color="#FFF"
-            android:id="@+id/image_avatar_women"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/avatar_ahri"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:ems="10"
-            android:id="@+id/Name_Men"
-            android:layout_weight="1"
-            android:hint="@string/Input_Name"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.2"
-            android:text="Name"
-            android:textAlignment="center"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:ems="10"
-            android:id="@+id/Name_Women"
-            android:layout_weight="1"
-            android:hint="@string/Input_Name"
-            android:gravity="center"/>
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="date"
-            android:ems="10"
-            android:id="@+id/Bday_Men"
-            android:layout_weight="1"
-            android:hint="@string/Input"
-            android:clickable="true"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.2"
-            android:text="Birthday"
-            android:textAlignment="center"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="date"
-            android:ems="10"
-            android:id="@+id/Bday_Women"
-            android:layout_weight="1"
-            android:hint="@string/Input"
-            android:gravity="center"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        tools:context="com.cntt.dbom.loveapp.ProfileActivity"
+        android:clickable="false"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.cntt.dbom.loveapp.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                app:civ_border_width="1dp"
+                app:civ_border_color="#FFF"
+                android:id="@+id/image_avatar_man"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/avatar_man"
+                android:layout_weight="1"
+                />
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+            <com.cntt.dbom.loveapp.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                app:civ_border_width="1dp"
+                app:civ_border_color="#FFF"
+                android:id="@+id/image_avatar_women"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/avatar_ahri"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:ems="10"
+                android:id="@+id/Name_Men"
+                android:layout_weight="1"
+                android:hint="@string/Input_Name"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:text="Name"
+                android:textAlignment="center"
+                android:textColor="@color/primary"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:ems="10"
+                android:id="@+id/Name_Women"
+                android:layout_weight="1"
+                android:hint="@string/Input_Name"
+                android:gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/Bday_Men"
+                android:layout_weight="1"
+                android:hint="@string/Input"
+                android:clickable="true"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:text="Birthday"
+                android:textAlignment="center"
+                android:textColor="@color/primary"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/Bday_Women"
+                android:layout_weight="1"
+                android:hint="@string/Input"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Relationship:"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/primary"
+                />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relationship"
+                >
+            </Spinner>
+        </LinearLayout>
+
         <TextView
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/date_start"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="THE START DATE"
+            android:textSize="20sp"
+            android:gravity="center"
+
+            />
+
+        <Button
+            android:id="@+id/dateBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Relationship:"
-            android:layout_marginRight="10dp"
-            />
-        <Spinner
+            android:onClick="onDateClicked"
+            android:text="Set the Date"
+            android:background="@color/level1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+        <Button
+            android:id="@+id/timeBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/relationship"
-            >
-        </Spinner>
+            android:onClick="onTimeClicked"
+            android:text="@string/OK"
+            android:background="@color/dark"
+            android:textSize="20dp"
+            android:textColor="@color/level3"
+
+            />
     </LinearLayout>
-    <TextView
-        android:layout_marginTop="20dp"
-        android:id="@+id/date_start"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="THE START DATE"
-        android:textSize="20sp"
-        android:gravity="center"
-        />
 
-    <Button
-        android:id="@+id/dateBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onDateClicked"
-        android:text="Set the Date"
-        android:background="@color/colorAccent"/>
+</RelativeLayout>
 
-    <Button
-        android:id="@+id/timeBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onTimeClicked"
-        android:text="@string/OK" />
-</LinearLayout>
+
