@@ -12,14 +12,13 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:padding="5dp"
-        android:background="@color/header"
+        android:background="@color/primary"
         android:weightSum="1"
-        android:elevation="4dp"
-        >
+        android:id="@+id/header">
         <com.cntt.dbom.loveapp.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            app:civ_border_width="1dp"
-            app:civ_border_color="#FFF"
+            app:civ_border_width="0.7dp"
+            app:civ_border_color="@color/dark"
             android:id="@+id/image_avatar_man"
             android:layout_width="70dp"
             android:layout_height="70dp"
@@ -28,6 +27,8 @@
             android:layout_gravity="center"
             />
         <FrameLayout
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -38,25 +39,25 @@
                 android:layout_gravity="center"
                 android:src="@drawable/heart"
                 android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_height="70dp"
                 />
-            <TextView
+                <TextView
                 android:id="@+id/days"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
-                android:textColor="#ffd9ed"
+                android:textColor="@color/primary"
                 android:text="365"
-                android:textSize="25dp"
+                android:textSize="22dp"
                 android:fontFamily="cursive"
                 android:layout_width="90dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 />
         </FrameLayout>
         <com.cntt.dbom.loveapp.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            app:civ_border_width="1dp"
-            app:civ_border_color="#FFF"
+            app:civ_border_width="0.7dp"
+            app:civ_border_color="@color/dark"
             android:id="@+id/image_avatar_women"
             android:layout_width="70dp"
             android:layout_height="70dp"
@@ -67,9 +68,61 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_below="@+id/header"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"></LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:weightSum="1">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_edittext"
+                android:text="Đi chơi xa vui quá"/>
+
+        </LinearLayout>
+        <ScrollView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ScrollView>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/level1">
+             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/event_name"
+                android:padding="10dp"
+                android:textSize="25dp"
+                android:paddingStart="20dp"
+                android:layout_weight="0.8"
+                android:textColor="@color/level3"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/event_day"
+                android:padding="10dp"
+                android:textSize="20dp"
+                android:paddingStart="20dp"
+                android:layout_weight="1.2"
+                android:textColor="@color/level2"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
 </RelativeLayout>
