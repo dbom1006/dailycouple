@@ -83,7 +83,7 @@ public class ProfileActivity extends AppCompatActivity {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
             year_x = year;
-            month_x= month;
+            month_x= month +1;
             day_x = dayOfMonth;
             txtBdateMen.setText(year_x +"/" + + month_x + "/" + day_x);
             //Toast.makeText(ProfileActivity.this,year_x +"/" + + month_x + "/" + day_x, Toast.LENGTH_LONG).show();
