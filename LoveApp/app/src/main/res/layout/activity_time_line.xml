@@ -77,30 +77,49 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:padding="8dp"
             >
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/emoticon_happy"
+                android:layout_marginRight="8dp"
                 />
             <EditText
+                android:layout_marginRight="8dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:background="@drawable/round_edittext"
                 android:text="Đi chơi xa vui quá"/>
-
+            <Button
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/checked"
+                />
         </LinearLayout>
+
         <ScrollView
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ScrollView>
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/CustomProgressBar"
+            android:progress="70"
+            android:id="@+id/process"
+            />
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/level1">
+            android:background="@color/dark">
              <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -112,14 +131,14 @@
                 android:textColor="@color/level3"
                 />
             <TextView
+                android:textAlignment="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/event_day"
                 android:padding="10dp"
                 android:textSize="20dp"
-                android:paddingStart="20dp"
                 android:layout_weight="1.2"
-                android:textColor="@color/level2"
+                android:textColor="@color/level3"
                 />
         </LinearLayout>
 
