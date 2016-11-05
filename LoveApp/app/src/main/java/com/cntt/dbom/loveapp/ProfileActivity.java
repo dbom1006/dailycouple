@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +25,7 @@ import android.widget.Toast;
 
 import com.cntt.dbom.loveapp.Entity.Relationship;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Calendar;
@@ -34,7 +39,7 @@ public class ProfileActivity extends AppCompatActivity {
     int year_x, month_x, day_x;
     static final int DILOG_ID = 0, DILOG_ID_MEN = 1, DILOG_ID_WOMEN = 2;
     TextView txtBdateMen, txtBdateWomen, txtDStart;
-
+    private boolean pickForMen=false;
     // image
     ImageView imgMan, imgWomen;
     @Override
@@ -42,8 +47,8 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        imgMan = (ImageView) findViewById(R.id.image_avatar_man);
-        imgWomen = (ImageView) findViewById(R.id.image_avatar_women) ;
+        imgMan = (com.cntt.dbom.loveapp.CircleImageView) findViewById(R.id.image_avatar_man);
+        imgWomen = (com.cntt.dbom.loveapp.CircleImageView) findViewById(R.id.image_avatar_women) ;
 
         Spinner spRela=(Spinner) findViewById(R.id.relationship);
         List<Relationship> lst=Relationship.getList();
@@ -67,7 +72,8 @@ public class ProfileActivity extends AppCompatActivity {
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent,
                         "Select Picture"), PICK_IMAGE_REQUEST);
-                imgMan.setImageBitmap(bitmap);
+                pickForMen=true;
+                //imgMan.setImageBitmap(bitmap);
             }
         });
         imgWomen.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +84,7 @@ public class ProfileActivity extends AppCompatActivity {
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent,
                         "Select Picture"), PICK_IMAGE_REQUEST);
+                pickForMen=false;
                 //imgMan.setImageBitmap(bitmap);
             }
         });
@@ -109,21 +116,10 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-
             Uri uri = data.getData();
-            InputStream inputStream;
-            try {
-                inputStream = getContentResolver().openInputStream(uri);
-                bitmap = BitmapFactory.decodeStream(inputStream);
-                // Log.d(TAG, String.valueOf(bitmap));
-                //ImageView imageView = (ImageView) findViewById(R.id.imgTest) ;
-                //imageView.setImageBitmap(bitmap);
-                imgMan.setImageBitmap(bitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            if (pickForMen) imgMan.setImageURI(uri);
+            else imgWomen.setImageURI(uri);
         }
     }
 //    public void onActivityResult(int requestCode, int resultCode, Intent data) {
