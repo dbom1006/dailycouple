@@ -1,4 +1,4 @@
-package com.cntt.dbom.loveapp;
+package com.cntt.dbom.loveapp.design;
 
 /**
  * Created by Dbom on 10/25/2016.
@@ -23,6 +23,8 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+
+import com.cntt.dbom.loveapp.R;
 
 public class CircleImageView extends ImageView {
 

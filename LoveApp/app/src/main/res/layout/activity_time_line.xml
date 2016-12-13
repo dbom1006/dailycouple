@@ -15,7 +15,7 @@
         android:background="@color/primary"
         android:weightSum="1"
         android:id="@+id/header">
-        <com.cntt.dbom.loveapp.CircleImageView
+        <com.cntt.dbom.loveapp.design.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             app:civ_border_width="0.7dp"
             app:civ_border_color="@color/dark"
@@ -54,7 +54,7 @@
                 android:layout_height="60dp"
                 />
         </FrameLayout>
-        <com.cntt.dbom.loveapp.CircleImageView
+        <com.cntt.dbom.loveapp.design.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             app:civ_border_width="0.7dp"
             app:civ_border_color="@color/dark"
@@ -74,38 +74,47 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:weightSum="1">
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:padding="8dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:padding="4dp"
+            android:background="@color/white"
+            android:layout_gravity="center"
+            android:gravity="center"
             >
             <Button
-                android:layout_width="35dp"
-                android:layout_height="match_parent"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@drawable/emoticon_happy"
+                android:id="@+id/button"
                 android:layout_marginRight="8dp"
                 />
             <EditText
+
                 android:layout_marginRight="8dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/round_edittext"
                 android:text="Đi chơi xa vui quá"/>
             <Button
-                android:layout_width="35dp"
-                android:layout_height="match_parent"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@drawable/checked"
                 />
         </LinearLayout>
 
-        <ScrollView
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </ScrollView>
+        <ListView
+                android:layout_weight="1"
+                android:id="@+id/ListActivities"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+        </ListView>
         <ProgressBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

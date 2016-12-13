@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtHeader"
+            android:padding="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ngày 15 Tháng 9 Năm 2016"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:textColor="@color/dark"
+            android:background="@color/level3"
+            android:visibility="gone"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+        <LinearLayout
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/emoticon_happy"
+                android:id="@+id/ImageEmoticon"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtStatus"
+                android:text="Trưa nay em không nấu"
+                android:textSize="14dp"
+                android:layout_alignParentTop="true"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtTime"
+                android:textColor="@color/level1"
+                android:text="15:02 "
+                android:textSize="12dp"
+                android:layout_alignParentTop="true"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

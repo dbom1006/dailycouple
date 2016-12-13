@@ -5,16 +5,10 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -22,13 +16,10 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cntt.dbom.loveapp.Entity.Relationship;
+import com.cntt.dbom.loveapp.design.CircleImageView;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Calendar;
 import java.util.List;
 
@@ -48,8 +39,8 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        imgMan = (com.cntt.dbom.loveapp.CircleImageView) findViewById(R.id.image_avatar_man);
-        imgWomen = (com.cntt.dbom.loveapp.CircleImageView) findViewById(R.id.image_avatar_women) ;
+        imgMan = (CircleImageView) findViewById(R.id.image_avatar_man);
+        imgWomen = (CircleImageView) findViewById(R.id.image_avatar_women) ;
 
         Spinner spRela=(Spinner) findViewById(R.id.relationship);
         List<Relationship> lst=Relationship.getList();
