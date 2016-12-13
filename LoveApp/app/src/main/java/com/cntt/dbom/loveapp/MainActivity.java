@@ -2,6 +2,7 @@ package com.cntt.dbom.loveapp;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -116,28 +117,30 @@ public class MainActivity extends ActionBarActivity {
 
     private void replaceFragment(int pos) {
         Fragment fragment = null;
+        Intent intent=null;
         switch (pos) {
             case 0:
-                fragment = new Fragment1();
+                intent = new Intent(MainActivity.this,ProfileActivity.class);
                 break;
             case 1:
-                fragment = new Fragment2();
+                intent = new Intent(MainActivity.this,TimeLineActivity.class);
                 break;
             case 2:
                 fragment = new Fragment3();
                 break;
             default:
-                fragment = new Fragment1();
+                intent = new Intent(MainActivity.this,TimeLineActivity.class);
                 break;
         }
-
-        if(null!=fragment) {
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.main_content, fragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
-        }
+        if(intent!=null)
+            startActivity(intent);
+//        if(null!=fragment) {
+//            FragmentManager fragmentManager = getFragmentManager();
+//            FragmentTransaction transaction = fragmentManager.beginTransaction();
+//            transaction.replace(R.id.main_content, fragment);
+//            transaction.addToBackStack(null);
+//            transaction.commit();
+//        }
     }
 
 
