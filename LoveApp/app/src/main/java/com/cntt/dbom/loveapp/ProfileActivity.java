@@ -124,11 +124,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.lists_menu, menu);
-        return true;
-    }
+
     //    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        if (resultCode == RESULT_OK) {
 //            if (requestCode == PICK_IMAGE_REQUEST) {
