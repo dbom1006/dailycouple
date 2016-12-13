@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -122,7 +123,13 @@ public class ProfileActivity extends AppCompatActivity {
             else imgWomen.setImageURI(uri);
         }
     }
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.lists_menu, menu);
+        return true;
+    }
+    //    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        if (resultCode == RESULT_OK) {
 //            if (requestCode == PICK_IMAGE_REQUEST) {
 //                Uri selectedImageUri = data.getData();

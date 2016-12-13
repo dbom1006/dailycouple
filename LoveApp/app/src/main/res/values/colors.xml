@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+
     <color name="background_avatar">#DDD</color>
     <color name="header">#ED939D</color>
     <color name="heart">#EBE1E2</color>
@@ -14,4 +12,15 @@
     <color name="level2">#F0C2C2</color>
     <color name="level3">#EBE1E2</color>
     <color name="dark">#557780</color>
+
+    <color name="colorPrimary">#024265</color>
+    <color name="colorPrimaryDark">#024265</color>
+    <color name="colorAccent">#0274B2</color>
+    <color name="transparent">#00000000</color>
+    <color name="middlegrey">#A8A8A8</color>
+    <color name="white">#ffffff</color>
+    <color name="yellow">#f6d126</color>
+    <color name="black">#000000</color>
+    <color name="middleblue">#8aa5ce</color>
+    <color name="red">#d50000</color>
 </resources>
