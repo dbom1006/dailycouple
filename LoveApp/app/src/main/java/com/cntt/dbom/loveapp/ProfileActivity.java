@@ -1,5 +1,6 @@
 package com.cntt.dbom.loveapp;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -32,7 +33,7 @@ import java.io.InputStream;
 import java.util.Calendar;
 import java.util.List;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity  extends Activity {
     private int PICK_IMAGE_REQUEST = 1;
     private String selectedImagePath;
     Bitmap bitmap;
