@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cntt.dbom.loveapp">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true"
         android:resizeable="true"
         android:smallScreens="true"
-        android:xlargeScreens="true"/>
+        android:xlargeScreens="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+<<<<<<< HEAD
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+=======
+        android:theme="@style/Theme.AppCompat">
+        <activity android:name=".TimeLineActivity">
+>>>>>>> 4476ae3719ba802cc318fb40ade22c3072677484
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,21 +32,57 @@
         </activity>
         <activity
             android:name=".ProfileActivity"
+<<<<<<< HEAD
             android:label="@string/love_settings"
+=======
+>>>>>>> 4476ae3719ba802cc318fb40ade22c3072677484
             android:configChanges="orientation|screenSize"
-            >
-        </activity>
+            android:label="@string/app_name"></activity>
         <!-- Menu Activities -->
+<<<<<<< HEAD
 
 
+=======
+        <activity
+            android:name=".UI.about.AboutActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="a"
+            android:parentActivityName=".ProfileActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TimeLineActivity" />
+        </activity>
+        <activity
+            android:name=".UI.help.HelpActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="help"
+            android:parentActivityName=".ProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TimeLineActivity" />
+        </activity>
+        <activity
+            android:name=".UI.settings.SettingsActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="SETTINGS"
+            android:parentActivityName=".ProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TimeLineActivity" />
+        </activity>
+>>>>>>> 4476ae3719ba802cc318fb40ade22c3072677484
 
-        <!--<activity android:name=".ProfileActivity">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+        <!-- <activity android:name=".ProfileActivity"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
+
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
+
     </application>
 
 </manifest>
