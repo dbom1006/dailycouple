@@ -35,7 +35,6 @@ public class TimeLineActivity extends AppCompatActivity {
     }
     class ActivityAdapter extends ArrayAdapter<Activity>{
         public List<Activity> data;
-
         public ActivityAdapter(Context context, int resource, List<Activity> objects) {
             super(context, resource, objects);
             this.data=objects;
