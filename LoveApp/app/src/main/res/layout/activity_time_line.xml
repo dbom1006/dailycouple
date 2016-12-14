@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:padding="5dp"
+            android:padding="10dp"
             android:background="@color/primary"
             android:weightSum="1"
             android:id="@+id/header">
@@ -86,12 +86,13 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:padding="4dp"
-                android:background="@color/white"
+                android:padding="6dp"
+                android:background="@color/level3"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
+
+
                 >
                 <Button
                     android:layout_width="30dp"
@@ -100,14 +101,21 @@
                     android:id="@+id/button"
                     android:layout_marginRight="8dp"
                     />
+
                 <EditText
 
                     android:layout_marginRight="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/round_edittext"
-                    android:text="Đi chơi xa vui quá"/>
+                    android:background="@color/white"
+                    android:textColor="@color/text_event"
+                    android:hint="Bạn cảm thấy thế nào?"
+                    android:textSize="15dp"
+                    android:id="@+id/editText"
+                    android:padding="5dp"
+                    />
+
                 <Button
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -120,6 +128,10 @@
                 android:id="@+id/ListActivities"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
 
                 >
 
@@ -172,11 +184,13 @@
     </RelativeLayout>
 
     <ListView
-        android:layout_width="200dp"
+        android:layout_width="220dp"
         android:layout_height="match_parent"
         android:id="@+id/lv_sliding_menu"
-        android:background="#FFFFFF"
+        android:background="@color/primary"
         android:choiceMode="singleChoice"
         android:layout_gravity="start"
-        android:backgroundTint="@color/dark"></ListView>
+        android:foregroundGravity="center"
+        android:paddingStart="10dp"
+        ></ListView>
 </android.support.v4.widget.DrawerLayout>

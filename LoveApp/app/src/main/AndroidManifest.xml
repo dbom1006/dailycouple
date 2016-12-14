@@ -30,7 +30,7 @@
         <activity
             android:name=".ProfileActivity"
             android:label="@string/love_settings"
-            android:theme="@style/Theme.AppCompat.DayNight">
+            >
             android:configChanges="orientation|screenSize">
         </activity>
         <activity

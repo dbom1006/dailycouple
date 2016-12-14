@@ -53,10 +53,10 @@ public class TimeLineActivity extends ActionBarActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         listSliding = new ArrayList<>();
         //Add item for sliding list
-        listSliding.add(new ItemSlideMenu(R.drawable.ic_favorite_white_48dp, "Home"));
-        listSliding.add(new ItemSlideMenu(R.drawable.ic_action_settings, "Seting"));
-        listSliding.add(new ItemSlideMenu(R.drawable.ic_event_white_48dp, "History"));
-        listSliding.add(new ItemSlideMenu(R.drawable.ic_action_about, "About"));
+        listSliding.add(new ItemSlideMenu(R.drawable.ic_favorite_white_48dp, "HOME"));
+        listSliding.add(new ItemSlideMenu(R.drawable.ic_setting,"SETTINGS"));
+        listSliding.add(new ItemSlideMenu(R.drawable.ic_event_white_48dp, "HISTORY"));
+        listSliding.add(new ItemSlideMenu(R.drawable.ic_action_about, "ABOUT"));
         slidingMenuAdapter = new SlidingMenuAdapter(this, listSliding);
         listViewSliding.setAdapter(slidingMenuAdapter);
 

@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:text="Ngày 15 Tháng 9 Năm 2016"
             android:textAlignment="center"
-            android:textSize="18dp"
+            android:textSize="12dp"
             android:textColor="@color/text_event"
             android:background="@color/level3"
             android:visibility="gone"
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtStatus"
                 android:text="Trưa nay em không nấu"
-                android:textSize="15dp"
+                android:textSize="13dp"
                 android:layout_alignParentTop="true"
                 android:textColor="@color/text_event"
                 />

@@ -1,9 +1,12 @@
 package com.cntt.dbom.loveapp;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -31,6 +34,23 @@ public class EventActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.add_menu, menu);
         return true;
     }
+    public void openDialog(Context context) {
+        final Dialog dialog = new Dialog(context); // Context, this, etc.
+        dialog.setContentView(R.layout.dialog_create_event);
+        dialog.setTitle("Add event");
+        dialog.show();
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.addEvent) {
+
+            openDialog(this);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     class EventAdapter extends ArrayAdapter<Event> {
         public List<Event> data;
 

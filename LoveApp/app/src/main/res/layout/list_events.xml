@@ -58,7 +58,7 @@
                 android:text="Noel"
                 android:textSize="17dp"
                 android:layout_alignParentTop="true"
-                android:textColor="@color/white"
+                android:textColor="@color/middleblue"
                 />
 
             <TextView
