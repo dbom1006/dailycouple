@@ -17,15 +17,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat">
-        <!--<activity android:name=".HistoryActivity">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
-        <activity android:name=".EventActivity">
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,38 +27,22 @@
         </activity>
         <activity
             android:name=".ProfileActivity"
+            android:label="@string/love_settings"
             android:configChanges="orientation|screenSize"
-            android:label="@string/app_name" />
+           >
+
+        </activity>
+        <activity
+            android:name=".TimeLineActivity"
+            android:label="Love Day"
+            android:configChanges="orientation|screenSize"
+            >
+
+        </activity>
         <!-- Menu Activities -->
-        <activity
-            android:name=".UI.about.AboutActivity"
-            android:configChanges="orientation|screenSize"
-            android:label="a"
-            android:parentActivityName=".ProfileActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".TimeLineActivity" />
-        </activity>
-        <activity
-            android:name=".UI.help.HelpActivity"
-            android:configChanges="orientation|screenSize"
-            android:label="help"
-            android:parentActivityName=".ProfileActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".TimeLineActivity" />
-        </activity>
-        <activity
-            android:name=".UI.settings.SettingsActivity"
-            android:configChanges="orientation|screenSize"
-            android:label="SETTINGS"
-            android:parentActivityName=".ProfileActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".TimeLineActivity" />
-        </activity>
+
+
+
 
         <!-- <activity android:name=".ProfileActivity"> -->
         <!-- <intent-filter> -->
@@ -75,7 +52,6 @@
         <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
         <!-- </intent-filter> -->
         <!-- </activity> -->
-
 
     </application>
 

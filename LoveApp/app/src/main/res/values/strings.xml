@@ -26,4 +26,7 @@
 
     <string name="drawer_opened">Opened</string>
     <string name="drawer_closed">Closed</string>
+    <string name="love_settings">Love Setting</string>
+    <string name="Done">Done</string>
+    <string name="ic_done" />
 </resources>
