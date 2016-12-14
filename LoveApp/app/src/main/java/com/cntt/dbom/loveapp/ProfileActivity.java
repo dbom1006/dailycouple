@@ -5,11 +5,9 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -21,15 +19,11 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.cntt.dbom.loveapp.DAL.DAO;
 import com.cntt.dbom.loveapp.DAL.ProfileDAO;
 import com.cntt.dbom.loveapp.Entity.Profile;
 import com.cntt.dbom.loveapp.Entity.Relationship;
 import com.cntt.dbom.loveapp.design.CircleImageView;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -57,8 +51,7 @@ public class ProfileActivity  extends Activity {
 
         Spinner spRela=(Spinner) findViewById(R.id.relationship);
         List<Relationship> lst=Relationship.getList();
-        ArrayAdapter<Relationship> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,lst);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        ArrayAdapter<Relationship> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,lst);
         spRela.setAdapter(adapter);
 
         //Khoi tao ngay thang mac dinh
@@ -67,32 +60,11 @@ public class ProfileActivity  extends Activity {
         month_x = calendar.get(Calendar.MONTH);
         day_x = calendar.get(Calendar.DAY_OF_MONTH);
         showDialogOnButtonClick();
-         //Đổ dữ liệu database cho settings
-        //ProfileDAO pD = new ProfileDAO(this);
-        Profile pf =null;
-        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        SQLiteDatabase database = new DAO(ProfileActivity.this ).getReadableDatabase();
-        Cursor cursor = database.rawQuery("select * from Profile", null);
-        if(cursor.moveToFirst()){
-            edtX = (EditText) findViewById(R.id.Name_Men);
-            edtX.setText(cursor.getString(cursor.getColumnIndex("NameX")));
-            String _nameX = cursor.getString(cursor.getColumnIndex("NameX"));
-            String _nameY = cursor.getString(cursor.getColumnIndex("NameY"));
-            String _birthdayX = cursor.getString(cursor.getColumnIndex("BirthdayX"));
-            String _birthdayY = cursor.getString(cursor.getColumnIndex("BirthdayY"));
-            String _dateBegin = cursor.getString(cursor.getColumnIndex("DateBegin"));
-            String _relationship = cursor.getString(cursor.getColumnIndex("Relationship"));
-            try {
-                Date tDateX= sdf.parse(_birthdayX), tDateY = sdf.parse(_birthdayY), tDateBegin = sdf.parse(_dateBegin);
-                pf = new Profile(_nameX,_nameY,tDateX,tDateY,tDateBegin,_relationship);
-
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-        }
+        //Đổ dữ liệu database cho settings
 //        //Profile pf = dao.getInfomation(dao);
-////        Profile pf = pD.getInfomation();
+//        ProfileDAO.CreateTable(this);
+//        ProfileDAO.Insert(new Profile("Bom","Si",new Date(),new Date(),new Date(),"Couple Love"),this);
+        Profile pf = ProfileDAO.getInformation(this);
         if(pf!=null){
             edtX = (EditText) findViewById(R.id.Name_Men);
             edtY = (EditText) findViewById(R.id.Name_Women);

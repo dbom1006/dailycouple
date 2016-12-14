@@ -1,7 +1,5 @@
 package com.cntt.dbom.loveapp;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -12,12 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
-import com.cntt.dbom.loveapp.Entity.Profile;
-import com.cntt.dbom.loveapp.R;
 import com.cntt.dbom.loveapp.adapter.SlidingMenuAdapter;
-import com.cntt.dbom.loveapp.fragment.Fragment1;
-import com.cntt.dbom.loveapp.fragment.Fragment2;
 import com.cntt.dbom.loveapp.fragment.Fragment3;
 import com.cntt.dbom.loveapp.model.ItemSlideMenu;
 import java.util.ArrayList;
@@ -131,7 +124,7 @@ public class MainActivity extends ActionBarActivity {
                 fragment = new Fragment3();
                 break;
             default:
-                intent = new Intent(MainActivity.this,ProfileActivity.class);
+                intent = new Intent(MainActivity.this,TimeLineActivity.class);
                 break;
         }
         if(intent!=null)
