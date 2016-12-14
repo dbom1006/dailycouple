@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -89,6 +90,8 @@
                 android:background="@color/white"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 >
                 <Button
                     android:layout_width="30dp"
@@ -116,7 +119,9 @@
                 android:layout_weight="1"
                 android:id="@+id/ListActivities"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+
+                >
 
             </ListView>
             <ProgressBar

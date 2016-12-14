@@ -19,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".TimeLineActivity"
+            android:label="@string/love_daily"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +30,7 @@
         <activity
             android:name=".ProfileActivity"
             android:label="@string/love_settings"
+            android:theme="@style/Theme.AppCompat.DayNight">
             android:configChanges="orientation|screenSize">
         </activity>
         <activity
