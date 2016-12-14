@@ -34,7 +34,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class ProfileActivity  extends Activity {
+public class ProfileActivity  extends AppCompatActivity {
     private int PICK_IMAGE_REQUEST = 1;
     private String selectedImagePath;
     Bitmap bitmap;
@@ -69,36 +69,6 @@ public class ProfileActivity  extends Activity {
         showDialogOnButtonClick();
          //Đổ dữ liệu database cho settings
         //ProfileDAO pD = new ProfileDAO(this);
-        Profile pf =null;
-        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        SQLiteDatabase database = new DAO(ProfileActivity.this ).getReadableDatabase();
-        Cursor cursor = database.rawQuery("select * from Profile", null);
-        if(cursor.moveToFirst()){
-            edtX = (EditText) findViewById(R.id.Name_Men);
-            edtX.setText(cursor.getString(cursor.getColumnIndex("NameX")));
-            String _nameX = cursor.getString(cursor.getColumnIndex("NameX"));
-            String _nameY = cursor.getString(cursor.getColumnIndex("NameY"));
-            String _birthdayX = cursor.getString(cursor.getColumnIndex("BirthdayX"));
-            String _birthdayY = cursor.getString(cursor.getColumnIndex("BirthdayY"));
-            String _dateBegin = cursor.getString(cursor.getColumnIndex("DateBegin"));
-            String _relationship = cursor.getString(cursor.getColumnIndex("Relationship"));
-            try {
-                Date tDateX= sdf.parse(_birthdayX), tDateY = sdf.parse(_birthdayY), tDateBegin = sdf.parse(_dateBegin);
-                pf = new Profile(_nameX,_nameY,tDateX,tDateY,tDateBegin,_relationship);
-
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-        }
-//        //Profile pf = dao.getInfomation(dao);
-////        Profile pf = pD.getInfomation();
-        if(pf!=null){
-            edtX = (EditText) findViewById(R.id.Name_Men);
-            edtY = (EditText) findViewById(R.id.Name_Women);
-            edtX.setText(pf.getNameX());
-            edtY.setText(pf.getNameY());
-        }
 
     }
     @Override

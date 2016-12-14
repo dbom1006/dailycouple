@@ -12,8 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
-import com.cntt.dbom.loveapp.Entity.Profile;
 import com.cntt.dbom.loveapp.R;
 import com.cntt.dbom.loveapp.adapter.SlidingMenuAdapter;
 import com.cntt.dbom.loveapp.fragment.Fragment1;
@@ -25,7 +23,7 @@ import java.util.ArrayList;
 public class MainActivity extends ActionBarActivity {
 
     private ArrayList<ItemSlideMenu> listSliding;
-    private SlidingMenuAdapter adapter;
+    private SlidingMenuAdapter slidingMenuAdapter;
     private ListView listViewSliding;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
@@ -44,8 +42,8 @@ public class MainActivity extends ActionBarActivity {
         listSliding.add(new ItemSlideMenu(R.drawable.ic_action_settings, "Seting"));
         listSliding.add(new ItemSlideMenu(R.drawable.ic_action_about, "About"));
         listSliding.add(new ItemSlideMenu(R.mipmap.ic_launcher, "Android"));
-        adapter = new SlidingMenuAdapter(this, listSliding);
-        listViewSliding.setAdapter(adapter);
+        slidingMenuAdapter = new SlidingMenuAdapter(this, listSliding);
+        listViewSliding.setAdapter(slidingMenuAdapter);
 
         //Display icon to open/ close sliding list
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

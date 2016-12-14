@@ -3,6 +3,7 @@ package com.cntt.dbom.loveapp;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -24,6 +25,11 @@ public class EventActivity extends AppCompatActivity {
         EventAdapter adapter = new EventAdapter(this, R.layout.list_events,lst);
         ListView listView = (ListView) findViewById(R.id.listEvent);
         listView.setAdapter(adapter);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.add_menu, menu);
+        return true;
     }
     class EventAdapter extends ArrayAdapter<Event> {
         public List<Event> data;

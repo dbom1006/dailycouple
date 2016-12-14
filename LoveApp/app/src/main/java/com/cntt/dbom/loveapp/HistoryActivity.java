@@ -3,6 +3,7 @@ package com.cntt.dbom.loveapp;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -25,6 +26,13 @@ public class HistoryActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.listHistory);
         listView.setAdapter(adapter);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.settings_menu, menu);
+        return true;
+    }
+
     class ActivityAdapter extends ArrayAdapter<Activity> {
         public List<Activity> data;
 
