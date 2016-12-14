@@ -20,11 +20,15 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cntt.dbom.loveapp.DAL.DAO;
+import com.cntt.dbom.loveapp.DAL.ProfileDAO;
+import com.cntt.dbom.loveapp.Entity.Profile;
 import com.cntt.dbom.loveapp.Entity.Relationship;
 
 import java.io.File;
@@ -41,6 +45,7 @@ public class ProfileActivity  extends Activity {
     int year_x, month_x, day_x;
     static final int DILOG_ID = 0, DILOG_ID_MEN = 1, DILOG_ID_WOMEN = 2;
     TextView txtBdateMen, txtBdateWomen, txtDStart;
+    EditText edtX, edtY;
     private boolean pickForMen=false;
     // image
     ImageView imgMan, imgWomen;
@@ -48,7 +53,6 @@ public class ProfileActivity  extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
         imgMan = (com.cntt.dbom.loveapp.CircleImageView) findViewById(R.id.image_avatar_man);
         imgWomen = (com.cntt.dbom.loveapp.CircleImageView) findViewById(R.id.image_avatar_women) ;
 
@@ -64,7 +68,23 @@ public class ProfileActivity  extends Activity {
         month_x = calendar.get(Calendar.MONTH);
         day_x = calendar.get(Calendar.DAY_OF_MONTH);
         showDialogOnButtonClick();
+        // Đổ dữ liệu database cho settings
+//        ProfileDAO pD = new ProfileDAO(this);
+//        Profile pf = pD.getInfomation();
+//        if(pf!=null){
+//            edtX = (EditText) findViewById(R.id.Name_Men);
+//            edtY = (EditText) findViewById(R.id.Name_Women);
+//            edtX.setText( pf.getNameX());
+//            edtY.setText(pf.getNameY());
+//        }
+
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.settings_menu, menu);
+        return true;
+    }
+
     public void showDialogOnButtonClick(){
         imgMan.setOnClickListener(new View.OnClickListener() {
             @Override

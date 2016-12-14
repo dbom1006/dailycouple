@@ -16,5 +16,6 @@
         android:id="@+id/lv_sliding_menu"
         android:background="#FFFFFF"
         android:choiceMode="singleChoice"
-        android:layout_gravity="start"></ListView>
+        android:layout_gravity="start"
+        android:backgroundTint="@color/dark"></ListView>
 </android.support.v4.widget.DrawerLayout>
