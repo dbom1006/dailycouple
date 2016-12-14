@@ -21,17 +21,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.cntt.dbom.loveapp.DAL.DAO;
 import com.cntt.dbom.loveapp.DAL.ProfileDAO;
 import com.cntt.dbom.loveapp.Entity.Profile;
 import com.cntt.dbom.loveapp.Entity.Relationship;
 import com.cntt.dbom.loveapp.design.CircleImageView;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class ProfileActivity  extends AppCompatActivity {
@@ -68,7 +63,10 @@ public class ProfileActivity  extends AppCompatActivity {
         day_x = calendar.get(Calendar.DAY_OF_MONTH);
         showDialogOnButtonClick();
          //Đổ dữ liệu database cho settings
-        //ProfileDAO pD = new ProfileDAO(this);
+        Profile pf=ProfileDAO.getInformation(this);
+        if(pf!=null){
+            //Xử lý đi chó
+        }
 
     }
     @Override
