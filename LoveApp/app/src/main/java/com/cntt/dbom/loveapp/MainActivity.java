@@ -12,6 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.cntt.dbom.loveapp.Entity.Profile;
 import com.cntt.dbom.loveapp.R;
 import com.cntt.dbom.loveapp.adapter.SlidingMenuAdapter;
 import com.cntt.dbom.loveapp.fragment.Fragment1;
@@ -129,7 +131,7 @@ public class MainActivity extends ActionBarActivity {
                 fragment = new Fragment3();
                 break;
             default:
-                intent = new Intent(MainActivity.this,TimeLineActivity.class);
+                intent = new Intent(MainActivity.this,ProfileActivity.class);
                 break;
         }
         if(intent!=null)

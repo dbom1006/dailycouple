@@ -41,29 +41,7 @@ public class Profile {
         this.dateBegin = dateBegin;
         this.relationship = relationship;
     }
-    public Profile getProfile (Context context){
-        SQLiteDatabase database = new DAO(context ).getReadableDatabase();
-        Cursor cursor = database.rawQuery("select * from Profile", null);
-        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        cursor.moveToFirst();
-        while(!cursor.isFirst()){
-            String _nameX = cursor.getString(cursor.getColumnIndex("NameX"));
-            String _nameY = cursor.getString(cursor.getColumnIndex("NameY"));
-            String _birthdayX = cursor.getString(cursor.getColumnIndex("BirthdayX"));
-            String _birthdayY = cursor.getString(cursor.getColumnIndex("BirthdayY"));
-            String _dateBegin = cursor.getString(cursor.getColumnIndex("DateBegin"));
-            String _relationship = cursor.getString(cursor.getColumnIndex("Relationship"));
-            try {
-                Date tDateX= sdf.parse(_birthdayX), tDateY = sdf.parse(_birthdayY), tDateBegin = sdf.parse(_dateBegin);
-                Profile pf = new Profile(_nameX,_nameY,tDateX,tDateY,tDateBegin,_relationship);
-                return pf;
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            cursor.moveToNext();
-        }
-        return null;
-    }
+
     public String getNameX() {
         return nameX;
     }

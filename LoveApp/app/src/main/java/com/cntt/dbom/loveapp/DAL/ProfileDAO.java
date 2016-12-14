@@ -18,6 +18,7 @@ import java.util.Date;
 public class ProfileDAO  extends DAO{
     public ProfileDAO(Context context) {
         super(context);
+
     }
 
     public Profile getInfomation(){
