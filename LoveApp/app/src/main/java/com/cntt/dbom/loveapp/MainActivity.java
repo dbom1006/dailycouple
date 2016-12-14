@@ -1,5 +1,7 @@
 package com.cntt.dbom.loveapp;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -10,7 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import com.cntt.dbom.loveapp.R;
 import com.cntt.dbom.loveapp.adapter.SlidingMenuAdapter;
+import com.cntt.dbom.loveapp.fragment.Fragment1;
+import com.cntt.dbom.loveapp.fragment.Fragment2;
 import com.cntt.dbom.loveapp.fragment.Fragment3;
 import com.cntt.dbom.loveapp.model.ItemSlideMenu;
 import java.util.ArrayList;
@@ -18,7 +23,7 @@ import java.util.ArrayList;
 public class MainActivity extends ActionBarActivity {
 
     private ArrayList<ItemSlideMenu> listSliding;
-    private SlidingMenuAdapter adapter;
+    private SlidingMenuAdapter slidingMenuAdapter;
     private ListView listViewSliding;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
@@ -37,8 +42,8 @@ public class MainActivity extends ActionBarActivity {
         listSliding.add(new ItemSlideMenu(R.drawable.ic_action_settings, "Seting"));
         listSliding.add(new ItemSlideMenu(R.drawable.ic_action_about, "About"));
         listSliding.add(new ItemSlideMenu(R.mipmap.ic_launcher, "Android"));
-        adapter = new SlidingMenuAdapter(this, listSliding);
-        listViewSliding.setAdapter(adapter);
+        slidingMenuAdapter = new SlidingMenuAdapter(this, listSliding);
+        listViewSliding.setAdapter(slidingMenuAdapter);
 
         //Display icon to open/ close sliding list
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -124,7 +129,7 @@ public class MainActivity extends ActionBarActivity {
                 fragment = new Fragment3();
                 break;
             default:
-                intent = new Intent(MainActivity.this,TimeLineActivity.class);
+                intent = new Intent(MainActivity.this,ProfileActivity.class);
                 break;
         }
         if(intent!=null)

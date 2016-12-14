@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/list_item_style"
+    android:background="@color/primary"
     android:orientation="horizontal"
-    android:backgroundTint="@color/dark"
+    android:padding="5dp"
     >
 
     <ImageView
@@ -13,13 +13,16 @@
         android:id="@+id/item_img"
         android:layout_margin="5dp"
         android:layout_gravity="center"
+        android:foregroundGravity="center"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/item_title"
         android:layout_gravity="center"
-        android:textSize="20dp"
-        android:textColor="@color/middleblue"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/white"
         />
 </LinearLayout>
