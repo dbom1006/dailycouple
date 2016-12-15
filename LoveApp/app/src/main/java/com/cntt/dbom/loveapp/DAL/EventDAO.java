@@ -20,33 +20,54 @@ import java.util.List;
  */
 
 public class EventDAO {
-    public static void Delete(Event e, Context context){
+    public static String Delete(Event e, Context context){
         SQLiteDatabase db=new DBContext(context).getReadableDatabase();
+        String error = null;
         String sql="DELETE FROM Event\n" +
                 "        WHERE Date = '"+e.getTxtOldDate()+"' AND\n" +
                 "                Name = '"+e.getName()+"'";
-        db.execSQL(sql);
+        try{
+            db.execSQL(sql);
+        }
+        catch (Exception e1){
+            error = e1+"";
+        }
+        return error;
     }
-    public static void DeleteByName(String name, Context context){
+    public static String DeleteByName(String name, Context context){
         SQLiteDatabase db=new DBContext(context).getReadableDatabase();
+        String error=null;
         String sql="DELETE FROM Event\n" +
                 "        WHERE  Name = '"+name+"'";
-        db.execSQL(sql);
+        try{
+            db.execSQL(sql);
+        }
+        catch (Exception e1){
+            error = e1+"";
+        }
+        return error;
     }
-    public static void Insert(Event e,Context context){
+    public static String Insert(Event e,Context context){
         SQLiteDatabase db=new DBContext(context).getReadableDatabase();
-        db.execSQL("INSERT INTO Event (\n" +
-                "                      Name,\n" +
-                "                      Date,\n" +
-                "                      Type,\n" +
-                "                      Icon\n" +
-                "                  )\n" +
-                "                  VALUES (\n" +
-                "                      '"+e.getName()+"',\n" +
-                "                      '"+e.getFullDate()+"',\n" +
-                "                      "+e.getType()+",\n" +
-                "                      "+e.getIcon()+"\n" +
-                "                  );\n");
+        String error=null;
+        try {
+            db.execSQL("INSERT INTO Event (\n" +
+                    "                      Name,\n" +
+                    "                      Date,\n" +
+                    "                      Type,\n" +
+                    "                      Icon\n" +
+                    "                  )\n" +
+                    "                  VALUES (\n" +
+                    "                      '"+e.getName()+"',\n" +
+                    "                      '"+e.getFullDate()+"',\n" +
+                    "                      "+e.getType()+",\n" +
+                    "                      "+e.getIcon()+"\n" +
+                    "                  );\n");
+        }
+        catch (Exception e1){
+            error = e1 +"";
+        }
+        return error;
     }
     public static List<Event> getList(Context context){
         List<Event> lst=getDataToList(context);

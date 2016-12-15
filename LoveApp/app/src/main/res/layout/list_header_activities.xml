@@ -2,11 +2,11 @@
 <TextView
     android:id="@+id/txtHeader"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="8dp"
+    android:padding="6dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="Ngày 15 Tháng 9 Năm 2016"
     android:textAlignment="center"
-    android:textSize="18dp"
+    android:textSize="16dp"
     android:textColor="@color/dark"
     android:background="@color/level3"/>
