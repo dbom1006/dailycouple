@@ -17,7 +17,7 @@ import java.util.List;
  * Created by Dbom on 12/15/2016.
  */
 
-public class AcitivityDAO {
+public class ActivityDAO {
     public static void Delete(Activity ac, Context context){
         SQLiteDatabase db=new DBContext(context).getReadableDatabase();
         String sql="DELETE FROM Activity\n" +

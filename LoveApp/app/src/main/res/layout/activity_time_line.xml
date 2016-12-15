@@ -48,7 +48,7 @@
                     android:layout_height="70dp"
                     />
                 <TextView
-                    android:id="@+id/days"
+                    android:id="@+id/timeLineDays"
                     android:textStyle="bold"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
@@ -92,12 +92,14 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 >
-                <Button
+
+                <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/emoticon_happy"
-                    android:id="@+id/button"
+                    android:background="@drawable/em_love"
+                    android:id="@+id/iconTimeLineEmotion"
                     android:layout_marginRight="8dp"
+
                     />
 
                 <EditText
@@ -110,7 +112,7 @@
                     android:textColor="@color/dark"
                     android:hint="Bạn cảm thấy thế nào?"
                     android:textSize="15dp"
-                    android:id="@+id/editText"
+                    android:id="@+id/txtEditStatus"
                     android:padding="5dp"
 
                     android:inputType="text" />
@@ -119,6 +121,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:background="@drawable/checked"
+                    android:id="@+id/btnInsertStatus"
                     />
             </LinearLayout>
 
@@ -177,7 +180,13 @@
 
         </LinearLayout>
     </RelativeLayout>
-
+    <com.cntt.dbom.loveapp.design.ReactionView
+        android:layout_marginTop="50dp"
+        android:id="@+id/view_reaction"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
     <ListView
         android:layout_width="220dp"
         android:layout_height="match_parent"
@@ -187,4 +196,5 @@
         android:layout_gravity="start"
         android:foregroundGravity="center"
         ></ListView>
+
 </android.support.v4.widget.DrawerLayout>

@@ -1,17 +1,20 @@
 package com.cntt.dbom.loveapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.cntt.dbom.loveapp.DAL.AcitivityDAO;
+import com.cntt.dbom.loveapp.DAL.ActivityDAO;
 import com.cntt.dbom.loveapp.Entity.Activity;
 
 import java.util.List;
@@ -22,16 +25,35 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-        List<Activity> lst= AcitivityDAO.getList(HistoryActivity.this);
+        List<Activity> lst= ActivityDAO.getList(HistoryActivity.this);
         ActivityAdapter adapter = new ActivityAdapter(this, R.layout.list_activities,lst);
         ListView listView = (ListView) findViewById(R.id.listHistory);
         listView.setAdapter(adapter);
+
+    }
+    private void Finish(){
+        Intent intent=new Intent(HistoryActivity.this,TimeLineActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void finish() {
+        Finish();
+        super.finish();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.settings_menu, menu);
         return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.img_close) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     class ActivityAdapter extends ArrayAdapter<Activity> {

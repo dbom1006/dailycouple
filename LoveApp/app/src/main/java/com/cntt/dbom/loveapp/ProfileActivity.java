@@ -56,6 +56,12 @@ public class ProfileActivity  extends AppCompatActivity {
     ImageView imgMan, imgWomen;
     Spinner spRela;
     public String uriX="",uriY="";
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,7 +135,8 @@ public class ProfileActivity  extends AppCompatActivity {
                             Toast.makeText(ProfileActivity.this,  error +"" , Toast.LENGTH_LONG).show();
                             Log.d("Erorr: ",error);
                         }
-                        ProfileActivity.this.finish();
+                        finish();
+
                     } catch (Exception e) {
                         Toast.makeText(ProfileActivity.this,  e +"" , Toast.LENGTH_LONG).show();
                     }
@@ -140,10 +147,17 @@ public class ProfileActivity  extends AppCompatActivity {
                 }
             }
         });
-
-
     }
+    private void Finish(){
+        Intent intent=new Intent(ProfileActivity.this,TimeLineActivity.class);
+        startActivity(intent);
+    }
+
     @Override
+    public void finish() {
+        Finish();
+        super.finish();
+    }
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.settings_menu, menu);
         return true;
@@ -152,8 +166,7 @@ public class ProfileActivity  extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.img_close) {
-            ProfileActivity.this.finish();
-
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);

@@ -1,5 +1,6 @@
 package com.cntt.dbom.loveapp;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -61,7 +62,16 @@ public class AboutActivity extends AppCompatActivity {
         });
 
     }
+    private void Finish(){
+        Intent intent=new Intent(AboutActivity.this,TimeLineActivity.class);
+        startActivity(intent);
+    }
 
+    @Override
+    public void finish() {
+        Finish();
+        super.finish();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

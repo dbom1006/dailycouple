@@ -51,4 +51,8 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="fab_margin">16sp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="width_view_reaction">300dp</dimen>
+    <dimen name="height_view_reaction">250dp</dimen>
+    <dimen name="width_title">60dp</dimen>
+    <dimen name="height_title">25dp</dimen>
 </resources>

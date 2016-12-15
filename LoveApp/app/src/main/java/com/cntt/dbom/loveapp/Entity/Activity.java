@@ -62,9 +62,9 @@ public class Activity implements Comparable<Activity> {
         int Day=Integer.parseInt(sdfDate.format(getDateTime()));
         int Month=Integer.parseInt(sdfMonth.format(getDateTime()));
         int Year=Integer.parseInt(sdfYear.format(getDateTime()));
-        if(Year!=oYear) return Year-oYear;
-        else    if(Month!=oMonth) return Month-oMonth;
-        else    if(Day!=oDay) return Day-oDay;
-        return (int)(getDateTime().getTime()-o.getDateTime().getTime());
+        if(Year!=oYear) return oYear-Year;
+        else    if(Month!=oMonth) return oMonth-Month;
+        else    if(Day!=oDay) return oDay-Day;
+        return (int)(o.getDateTime().getTime()-getDateTime().getTime());
     }
 }

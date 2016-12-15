@@ -3,6 +3,7 @@ package com.cntt.dbom.loveapp;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -48,6 +49,16 @@ public class EventActivity extends AppCompatActivity{
         return true;
     }
 
+    private void Finish(){
+        Intent intent=new Intent(EventActivity.this,TimeLineActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void finish() {
+        Finish();
+        super.finish();
+    }
     public void openDialog(Context context) {
         AlertDialog.Builder builder;
         AlertDialog alertDialog;

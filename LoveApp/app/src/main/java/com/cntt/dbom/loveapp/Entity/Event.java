@@ -81,7 +81,7 @@ public class Event implements Comparable<Event>{
     }
 
     public long getDaysLeft(){
-        return 1+(date.getTime()-(new Date()).getTime())/(1000*60*60*24);
+        return Math.round((date.getTime()-(new Date()).getTime())/(1000.0*60*60*24));
     }
 
     public String getTxtOldDate() {

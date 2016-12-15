@@ -1,13 +1,10 @@
 package com.cntt.dbom.loveapp;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -17,16 +14,24 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.cntt.dbom.loveapp.DAL.AcitivityDAO;
+import com.cntt.dbom.loveapp.DAL.ActivityDAO;
+import com.cntt.dbom.loveapp.DAL.ProfileDAO;
 import com.cntt.dbom.loveapp.Entity.Activity;
 import com.cntt.dbom.loveapp.adapter.SlidingMenuAdapter;
+import com.cntt.dbom.loveapp.design.ReactionView;
 import com.cntt.dbom.loveapp.model.ItemSlideMenu;
 
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TimeLineActivity extends ActionBarActivity {
@@ -35,14 +40,21 @@ public class TimeLineActivity extends ActionBarActivity {
     private ListView listViewSliding;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-
+    private ImageView iconEmotion;
+    private EditText txtStatus;
+    private Button btnInsertStatus;
+    private ReactionView reactionView;
+    private ListView listView;
+    private List<Activity> lst;
+    private ActivityAdapter adapter;
+    private TextView timeLineDays;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_line);
-        List<Activity> lst= AcitivityDAO.getListToday(TimeLineActivity.this);
-        ActivityAdapter adapter = new ActivityAdapter(this,R.layout.list_activities,lst);
-        ListView listView = (ListView) findViewById(R.id.ListActivities);
+        initView();
+        lst= ActivityDAO.getListToday(TimeLineActivity.this);
+        adapter = new ActivityAdapter(this,R.layout.list_activities,lst);
         listView.setAdapter(adapter);
         //Init component
         listViewSliding = (ListView) findViewById(R.id.lv_sliding_menu);
@@ -112,7 +124,6 @@ public class TimeLineActivity extends ActionBarActivity {
     }
 
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -137,7 +148,6 @@ public class TimeLineActivity extends ActionBarActivity {
     //Create method replace fragment
 
     private void replaceFragment(int pos) {
-        Fragment fragment = null;
         Intent intent=null;
         switch (pos) {
             case 0:
@@ -155,17 +165,76 @@ public class TimeLineActivity extends ActionBarActivity {
 
                 break;
         }
-        if(intent!=null)
+        if(intent!=null) {
             startActivity(intent);
+            this.finish();
+        }
 //        if(null!=fragment) {
 //            FragmentManager fragmentManager = getFragmentManager();
 //            FragmentTransaction transaction = fragmentManager.beginTransaction();
 //            transaction.replace(R.id.drawer_layout, fragment);
 //            transaction.addToBackStack(null);
 //            transaction.commit();
-//        }
+//       }
+
     }
 
+    public void initView() {
+
+        timeLineDays=(TextView) findViewById(R.id.timeLineDays);
+        timeLineDays.setText("0");
+        if(ProfileDAO.getInformation(TimeLineActivity.this)!=null){
+            Date dateNow=new Date();
+            Date date;
+            String stDate=ProfileDAO.getInformation(TimeLineActivity.this).getDateBegin();
+            try{
+                date=new SimpleDateFormat("dd/MM/yyyy").parse(stDate);
+            }
+            catch (Exception e){
+                date=dateNow;
+            }
+            long days=Math.round((dateNow.getTime()-date.getTime())/(1000.0*60*60*24));
+            timeLineDays.setText(days+"");
+        }
+        listView = (ListView) findViewById(R.id.ListActivities);
+        iconEmotion = (ImageView) findViewById(R.id.iconTimeLineEmotion);
+        iconEmotion.setTag(R.drawable.em_love);
+        reactionView = (ReactionView) findViewById(R.id.view_reaction);
+        reactionView.setVisibility(View.INVISIBLE);
+        iconEmotion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reactionView.show(v);
+            }
+        });
+        btnInsertStatus= (Button) findViewById(R.id.btnInsertStatus);
+        txtStatus = (EditText) findViewById(R.id.txtEditStatus);
+        btnInsertStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!txtStatus.getText().equals("")){
+                    Date date=new Date();
+                    String stDate=new SimpleDateFormat("dd/MM/yyyy").format(date);
+                    String stTime=new SimpleDateFormat("hh:mm").format(date);
+                    ActivityDAO.Insert(new Activity(txtStatus.getText().toString(),stDate,stTime,(Integer)iconEmotion.getTag()),TimeLineActivity.this);
+                    Toast.makeText(TimeLineActivity.this,"Đăng thành công",Toast.LENGTH_LONG);
+                    resetLoadScreen();
+                }
+                else{
+                   Toast.makeText(TimeLineActivity.this,"Không thể đăng Status. Cảm nghĩ không được bỏ trống!",Toast.LENGTH_LONG);
+                }
+            }
+        });
+    }
+
+    public void resetLoadScreen(){
+        iconEmotion.setImageResource(R.drawable.em_love);
+        iconEmotion.setTag(R.drawable.em_love);
+        txtStatus.setText(null);
+        lst=ActivityDAO.getListToday(TimeLineActivity.this);
+        adapter.clear();
+        adapter.addAll(lst);
+    }
 
     class ActivityAdapter extends ArrayAdapter<Activity>{
         public List<Activity> data;
