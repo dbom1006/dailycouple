@@ -27,9 +27,7 @@ public class DBContext extends SQLiteOpenHelper {
                 "    ImgX         STRING,\n" +
                 "    ImgY         STRING\n" +
                 ");\n");
-<<<<<<< HEAD
 
-=======
         db.execSQL("CREATE TABLE Event (\n" +
                 "    Name VARCHAR (50) NOT NULL,\n" +
                 "    Date VARCHAR,\n" +
@@ -118,7 +116,6 @@ public class DBContext extends SQLiteOpenHelper {
                 "                        '1995-06-10',\n" +
                 "                        'Bom'\n" +
                 "                    );\n");
->>>>>>> d8cd987970b2e990df066c7abc9e5fab8139d52c
     }
 
     @Override
