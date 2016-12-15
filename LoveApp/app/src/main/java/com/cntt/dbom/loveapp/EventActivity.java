@@ -1,5 +1,6 @@
 package com.cntt.dbom.loveapp;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -12,19 +13,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cntt.dbom.loveapp.DAL.EventDAO;
 import com.cntt.dbom.loveapp.Entity.Event;
 import com.cntt.dbom.loveapp.adapter.EventAdapter;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class EventActivity extends AppCompatActivity{
     public EventAdapter adapter;
     public List<Event> lst;
     public ListView listView;
+    int year_x, month_x, day_x;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +86,10 @@ public class EventActivity extends AppCompatActivity{
             openDialog(this);
             return true;
         }
+        if (id == R.id.img_close) {
+            EventActivity.this.finish();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -93,8 +103,29 @@ public class EventActivity extends AppCompatActivity{
         int icon=chkIcon.isChecked()?R.drawable.calendar_important:R.drawable.calendar_love;
         int type=chkType.isChecked()?1:2;
         Event e=new Event(name,date,type,icon);
-        EventDAO.Insert(e,context);
+        String error = EventDAO.Insert(e,context);
+        if(error==null)Toast.makeText(EventActivity.this,  "Success!" , Toast.LENGTH_LONG).show();
+        else Toast.makeText(EventActivity.this,  "Faded!" , Toast.LENGTH_LONG).show();
     }
+//    @Override
+//    protected Dialog onCreateDialog(int id){
+//        if(id==DILOG_ID_DATE){
+//            return  new DatePickerDialog(this, dMenPickerListner, year_x, month_x, day_x);
+//        }
+//
+//        return  null;
+//    }
+//    private DatePickerDialog.OnDateSetListener dMenPickerListner
+//            = new DatePickerDialog.OnDateSetListener() {
+//        @Override
+//        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//            year_x = year;
+//            month_x= month +1;
+//            day_x = dayOfMonth;
+//            txtBdateMen.setText(day_x +"/" + month_x + "/" + year_x);
+//            //Toast.makeText(ProfileActivity.this,year_x +"/" + + month_x + "/" + day_x, Toast.LENGTH_LONG).show();
+//        }
+//    };
     private AlertDialog AskOption(final Event e,final Context context)
     {
 
@@ -112,11 +143,15 @@ public class EventActivity extends AppCompatActivity{
                 })
                 .setNegativeButton("Xóa", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        EventDAO.Delete(e,context);
+                        String error = EventDAO.Delete(e,context);
+                        if(error==null)Toast.makeText(EventActivity.this,  "Deleted!" , Toast.LENGTH_LONG).show();
+                        else Toast.makeText(EventActivity.this,  "Faded!" , Toast.LENGTH_LONG).show();
                         lst=EventDAO.getList(EventActivity.this);
                         adapter.clear();
                         adapter.addAll(lst);
+
                         dialog.dismiss();
+
                     }
                 })
                 .create();

@@ -124,9 +124,9 @@ public class ProfileActivity  extends AppCompatActivity {
                         Profile spf = new Profile(_nameX,_nameY,_birthdayX,_birthdayY,_dateBegin,_relationship, uriX,uriY);
 
                         String error = ProfileDAO.update(ProfileActivity.this,spf);
-                        if (error==null)Toast.makeText(ProfileActivity.this,  "Thêm thành công!" , Toast.LENGTH_LONG).show();
+                        if (error==null)Toast.makeText(ProfileActivity.this,  "Success!" , Toast.LENGTH_LONG).show();
                         else {
-                            Toast.makeText(ProfileActivity.this,  error +"" , Toast.LENGTH_LONG).show();
+                            Toast.makeText(ProfileActivity.this,  "Faded!" , Toast.LENGTH_LONG).show();
                             Log.d("Erorr: ",error);
                         }
                         ProfileActivity.this.finish();

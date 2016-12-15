@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:text="Tháng 9 Năm 2016"
             android:textAlignment="center"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:textColor="@color/white"
             android:background="@color/dark"
             android:visibility="gone"

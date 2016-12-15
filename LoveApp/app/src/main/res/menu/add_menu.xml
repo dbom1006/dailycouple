@@ -7,4 +7,9 @@
         android:icon="@drawable/ic_note_add_white_48dp"
         android:title="Done"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/img_close"
+        android:icon="@drawable/ic_clear_white_48dp"
+        android:title="Done"
+        app:showAsAction="always"/>
 </menu>
