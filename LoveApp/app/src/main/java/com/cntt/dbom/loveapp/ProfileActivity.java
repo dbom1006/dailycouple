@@ -86,7 +86,7 @@ public class ProfileActivity  extends AppCompatActivity {
             txtBdateMen.setText(pf.getBirthdayX().toString());
             txtBdateWomen.setText(pf.getBirthdayY().toString());
             btnSetDate.setText(pf.getDateBegin().toString());
-            Log.d("Haha", pf.getImgX().trim()+","+uriY );
+//            Log.d("Haha", pf.getImgX().trim()+","+uriY );
             //imgMan.setImageURI(Uri.fromFile(new File(pf.getImgX()) ));
             //imgWomen.setImageURI(Uri.parse(pf.getImgY()));
         }
@@ -204,7 +204,7 @@ public class ProfileActivity  extends AppCompatActivity {
             if (pickForMen) {
                 uriX = uri.toString();
                 imgMan.setImageURI(uri);
-                Toast.makeText(ProfileActivity.this,uri +"" , Toast.LENGTH_LONG).show();
+                //Toast.makeText(ProfileActivity.this,uri +"" , Toast.LENGTH_LONG).show();
                 Log.d("KQ",uri +"," + uriX );
             }
             else{

@@ -100,22 +100,7 @@ public class DBContext extends SQLiteOpenHelper {
                 "                      '12/10/2016',\n" +
                 "                      'Dẫn gấu đi xem phim'\n" +
                 "                  );\n");
-        db.execSQL("INSERT INTO Profile (\n" +
-                "                        Relationship,\n" +
-                "                        DateBegin,\n" +
-                "                        BirthdayY,\n" +
-                "                        NameY,\n" +
-                "                        BirthdayX,\n" +
-                "                        NameX\n" +
-                "                    )\n" +
-                "                    VALUES (\n" +
-                "                        'Couple Love',\n" +
-                "                        '2015-12-12',\n" +
-                "                        '1995-07-25',\n" +
-                "                        'Si',\n" +
-                "                        '1995-06-10',\n" +
-                "                        'Bom'\n" +
-                "                    );\n");
+
     }
 
     @Override
