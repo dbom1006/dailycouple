@@ -169,7 +169,7 @@
                 android:inputType="text"
                 android:id="@+id/email_two"
                 android:layout_weight="1"
-                android:hint="@string/emailOne"
+                android:hint="@string/emailTwo"
                 android:gravity="center"
                 android:textSize="11dp"/>
         </LinearLayout>
