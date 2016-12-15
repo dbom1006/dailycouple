@@ -27,7 +27,98 @@ public class DBContext extends SQLiteOpenHelper {
                 "    ImgX         STRING,\n" +
                 "    ImgY         STRING\n" +
                 ");\n");
+<<<<<<< HEAD
 
+=======
+        db.execSQL("CREATE TABLE Event (\n" +
+                "    Name VARCHAR (50) NOT NULL,\n" +
+                "    Date VARCHAR,\n" +
+                "    Type INTEGER,\n" +
+                "    Icon INTEGER\n" +
+                ");\n");
+        db.execSQL("INSERT INTO Event (\n" +
+                "                      Icon,\n" +
+                "                      Type,\n" +
+                "                      Date,\n" +
+                "                      Name\n" +
+                "                  )\n" +
+                "                  VALUES (\n" +
+                "                      2130837588,\n" +
+                "                      1,\n" +
+                "                      '24/12/2016',\n" +
+                "                      'Noel'\n" +
+                "                  ),\n" +
+                "                  (\n" +
+                "                      2130837588,\n" +
+                "                      1,\n" +
+                "                      '01/01/2017',\n" +
+                "                      'Tết dương lịch'\n" +
+                "                  ),\n" +
+                "                  (\n" +
+                "                      2130837587,\n" +
+                "                      1,\n" +
+                "                      '14/02/2017',\n" +
+                "                      'Valentine'\n" +
+                "                  ),\n" +
+                "                  (\n" +
+                "                      2130837586,\n" +
+                "                      1,\n" +
+                "                      '22/02/1995',\n" +
+                "                      'Sinh nhật Anh'\n" +
+                "                  ),\n" +
+                "                  (\n" +
+                "                      2130837586,\n" +
+                "                      1,\n" +
+                "                      '28/06/1995',\n" +
+                "                      'Sinh nhật Em'\n" +
+                "                  ),\n" +
+                "                  (\n" +
+                "                      2130837588,\n" +
+                "                      1,\n" +
+                "                      '08/03/2017',\n" +
+                "                      'Phụ nữ Việt Nam'\n" +
+                "                  ),\n" +
+                "                  (\n" +
+                "                      2130837588,\n" +
+                "                      1,\n" +
+                "                      '01/06/2017',\n" +
+                "                      'Quốc tế thiếu nhi'\n" +
+                "                  ),\n" +
+                "                  (\n" +
+                "                      2130837587,\n" +
+                "                      2,\n" +
+                "                      '25/06/2017',\n" +
+                "                      'Dẫn gấu đi họp lớp'\n" +
+                "                  ),\n" +
+                "                  (\n" +
+                "                      2130837587,\n" +
+                "                      2,\n" +
+                "                      '15/01/2017',\n" +
+                "                      'Dẫn gấu di mua đồ tết'\n" +
+                "                  ),\n" +
+                "                  (\n" +
+                "                      2130837587,\n" +
+                "                      2,\n" +
+                "                      '12/10/2016',\n" +
+                "                      'Dẫn gấu đi xem phim'\n" +
+                "                  );\n");
+        db.execSQL("INSERT INTO Profile (\n" +
+                "                        Relationship,\n" +
+                "                        DateBegin,\n" +
+                "                        BirthdayY,\n" +
+                "                        NameY,\n" +
+                "                        BirthdayX,\n" +
+                "                        NameX\n" +
+                "                    )\n" +
+                "                    VALUES (\n" +
+                "                        'Couple Love',\n" +
+                "                        '2015-12-12',\n" +
+                "                        '1995-07-25',\n" +
+                "                        'Si',\n" +
+                "                        '1995-06-10',\n" +
+                "                        'Bom'\n" +
+                "                    );\n");
+>>>>>>> d8cd987970b2e990df066c7abc9e5fab8139d52c
     }
 
     @Override

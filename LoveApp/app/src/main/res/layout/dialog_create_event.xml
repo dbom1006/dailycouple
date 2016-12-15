@@ -1,44 +1,66 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/dialogAddEvent">
+    android:id="@+id/dialogAddEvent"
+    android:gravity="center"
+    >
+
     <TextView
         android:gravity="center"
         android:text="TẠO SỰ KIỆN"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:scaleType="center"
         android:textSize="18dp"
         android:textStyle="bold"
         android:background="@color/dark"
-        android:contentDescription="@string/app_name" />
-    <EditText
-        android:id="@+id/txtCreateEventName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
+        android:textColor="@color/white"
+        android:contentDescription="@string/app_name"
+        android:id="@+id/textView"
         android:layout_marginBottom="4dp"
-        android:hint="Tên sự kiện" />
-    <EditText
-        android:id="@+id/txtCreateEventDate"
-        android:inputType="date"
+        />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="16dp"
-        android:hint="Ngày diễn ra"/>
-    <CheckBox
-        android:id="@+id/chkCreateEventImportant"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Sự kiện quan trọng"/>
-    <CheckBox
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Nhắc nhở hàng năm"/>
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <EditText
+            android:id="@+id/txtCreateEventName"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="Tên sự kiện"
+            android:inputType="text"/>
+        <EditText
+            android:id="@+id/txtCreateEventDate"
+            android:inputType="date"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="Ngày diễn ra"/>
+
+        <CheckBox
+            android:layout_margin="4dp"
+            android:id="@+id/chkCreateEventImportant"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:text="Sự kiện quan trọng"/>
+
+        <CheckBox
+            android:layout_margin="4dp"
+            android:id="@+id/chkCreateEventEveryYear"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:text="Nhắc nhở hàng năm"/>
+        <ImageView
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/dark"/>
+    </LinearLayout>
+
 </LinearLayout>
