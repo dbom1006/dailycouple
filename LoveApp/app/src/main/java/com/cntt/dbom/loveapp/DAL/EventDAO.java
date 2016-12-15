@@ -22,9 +22,10 @@ import java.util.List;
 public class EventDAO {
     public static void Delete(Event e, Context context){
         SQLiteDatabase db=new DBContext(context).getReadableDatabase();
-        db.execSQL("DELETE FROM Event\n" +
-                "        WHERE Date = '"+e.getFullDate()+"' AND\n" +
-                "                Name = '"+e.getName()+"'");
+        String sql="DELETE FROM Event\n" +
+                "        WHERE Date = '"+e.getTxtOldDate()+"' AND\n" +
+                "                Name = '"+e.getName()+"'";
+        db.execSQL(sql);
     }
     public static void Insert(Event e,Context context){
         SQLiteDatabase db=new DBContext(context).getReadableDatabase();

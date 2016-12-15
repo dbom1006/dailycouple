@@ -16,6 +16,7 @@ import java.util.List;
 public class Event implements Comparable<Event>{
     private String name;
     private Date date;
+    private String txtOldDate;
     private String txtDate;
     private int type;
     //1: Event Hàng năm
@@ -31,6 +32,7 @@ public class Event implements Comparable<Event>{
     public Event(String name,String date,int type,int icon){
         this.name=name;
         this.txtDate=date;
+        this.txtOldDate=date;
         try{
             this.date=(new SimpleDateFormat("dd/MM/yyyy").parse(date));
         }catch (Exception e){
@@ -77,29 +79,9 @@ public class Event implements Comparable<Event>{
     public long getDaysLeft(){
         return 1+(date.getTime()-(new Date()).getTime())/(1000*60*60*24);
     }
-    public static List<Event> getList(){
-        List<Event> lst=new ArrayList<>();
-        Date d1,d2,d3,d4,d5;
-        SimpleDateFormat SDF=new SimpleDateFormat("dd/MM/yyyy");
-        try{
-            d1=SDF.parse("24/12/2016");
-            d2=SDF.parse("01/01/2017");
-            d3=SDF.parse("28/01/2017");
-            d4=SDF.parse("14/02/2017");
-            d5=SDF.parse("01/06/2017");
-        }catch (Exception e){
-            d1=new Date();
-            d2=new Date();
-            d3=new Date();
-            d4=new Date();
-            d5=new Date();
-        }
-        lst.add(new Event("Noel",d1,1, R.drawable.calendar_important));
-        lst.add(new Event("Tết dương lịch",d2,1, R.drawable.calendar_schedule));
-        lst.add(new Event("Tết Âm lịch",d3,1, R.drawable.calendar_schedule));
-        lst.add(new Event("Valentine",d4,1, R.drawable.calendar_love));
-        lst.add(new Event("Quốc tế thiếu nhi",d5,1, R.drawable.calendar_schedule));
-        return lst;
+
+    public String getTxtOldDate() {
+        return txtOldDate;
     }
 
     @Override
