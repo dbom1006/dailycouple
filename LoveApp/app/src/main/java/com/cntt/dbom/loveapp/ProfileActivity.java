@@ -95,8 +95,12 @@ public class ProfileActivity  extends AppCompatActivity {
             txtBdateWomen.setText(pf.getBirthdayY().toString());
             btnSetDate.setText(pf.getDateBegin().toString());
 //            Log.d("Haha", pf.getImgX().trim()+","+uriY );
-            //imgMan.setImageURI(Uri.fromFile(new File(pf.getImgX()) ));
-            //imgWomen.setImageURI(Uri.parse(pf.getImgY()));
+            uriX=pf.getImgX();
+            uriY=pf.getImgY();
+            if(!uriX.equals(""))
+                imgMan.setImageURI(Uri.parse(uriX));
+            if(!uriY.equals(""))
+                imgWomen.setImageURI(Uri.parse(uriY));
         }
 
         //Khoi tao ngay thang mac dinh
@@ -130,20 +134,20 @@ public class ProfileActivity  extends AppCompatActivity {
                         Profile spf = new Profile(_nameX,_nameY,_birthdayX,_birthdayY,_dateBegin,_relationship, uriX,uriY);
 
                         String error = ProfileDAO.update(ProfileActivity.this,spf);
-                        if (error==null)Toast.makeText(ProfileActivity.this,  "Success!" , Toast.LENGTH_LONG).show();
+                        if (error==null)Toast.makeText(ProfileActivity.this,  "Success!" , Toast.LENGTH_SHORT).show();
                         else {
-                            Toast.makeText(ProfileActivity.this,  "Faded!" , Toast.LENGTH_LONG).show();
+                            Toast.makeText(ProfileActivity.this,  "Faded!" , Toast.LENGTH_SHORT).show();
                             Log.d("Erorr: ",error);
                         }
                         finish();
 
                     } catch (Exception e) {
-                        Toast.makeText(ProfileActivity.this,  e +"" , Toast.LENGTH_LONG).show();
+                        Toast.makeText(ProfileActivity.this,  e +"" , Toast.LENGTH_SHORT).show();
                     }
 
                 }
                 else{
-                    Toast.makeText(ProfileActivity.this,  "Vui lòng nhập đủ thông tin!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ProfileActivity.this,  "Vui lòng nhập đủ thông tin!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -227,8 +231,6 @@ public class ProfileActivity  extends AppCompatActivity {
             if (pickForMen) {
                 uriX = uri.toString();
                 imgMan.setImageURI(uri);
-                //Toast.makeText(ProfileActivity.this,uri +"" , Toast.LENGTH_LONG).show();
-                Log.d("KQ",uri +"," + uriX );
             }
             else{
                 imgWomen.setImageURI(uri);

@@ -115,8 +115,8 @@ public class EventActivity extends AppCompatActivity{
         int type=chkType.isChecked()?1:2;
         Event e=new Event(name,date,type,icon);
         String error = EventDAO.Insert(e,context);
-        if(error==null)Toast.makeText(EventActivity.this,  "Success!" , Toast.LENGTH_LONG).show();
-        else Toast.makeText(EventActivity.this,  "Faded!" , Toast.LENGTH_LONG).show();
+        if(error==null)Toast.makeText(EventActivity.this,  "Success!" , Toast.LENGTH_SHORT).show();
+        else Toast.makeText(EventActivity.this,  "Faded!" , Toast.LENGTH_SHORT).show();
     }
 //    @Override
 //    protected Dialog onCreateDialog(int id){
@@ -134,7 +134,7 @@ public class EventActivity extends AppCompatActivity{
 //            month_x= month +1;
 //            day_x = dayOfMonth;
 //            txtBdateMen.setText(day_x +"/" + month_x + "/" + year_x);
-//            //Toast.makeText(ProfileActivity.this,year_x +"/" + + month_x + "/" + day_x, Toast.LENGTH_LONG).show();
+//            //Toast.makeText(ProfileActivity.this,year_x +"/" + + month_x + "/" + day_x, Toast.LENGTH_SHORT).show();
 //        }
 //    };
     private AlertDialog AskOption(final Event e,final Context context)
@@ -155,8 +155,8 @@ public class EventActivity extends AppCompatActivity{
                 .setNegativeButton("Xóa", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         String error = EventDAO.Delete(e,context);
-                        if(error==null)Toast.makeText(EventActivity.this,  "Deleted!" , Toast.LENGTH_LONG).show();
-                        else Toast.makeText(EventActivity.this,  "Faded!" , Toast.LENGTH_LONG).show();
+                        if(error==null)Toast.makeText(EventActivity.this,  "Deleted!" , Toast.LENGTH_SHORT).show();
+                        else Toast.makeText(EventActivity.this,  "Faded!" , Toast.LENGTH_SHORT).show();
                         lst=EventDAO.getList(EventActivity.this);
                         adapter.clear();
                         adapter.addAll(lst);

@@ -1,11 +1,15 @@
 package com.cntt.dbom.loveapp;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Process;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,13 +22,18 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cntt.dbom.loveapp.DAL.ActivityDAO;
+import com.cntt.dbom.loveapp.DAL.EventDAO;
 import com.cntt.dbom.loveapp.DAL.ProfileDAO;
 import com.cntt.dbom.loveapp.Entity.Activity;
+import com.cntt.dbom.loveapp.Entity.Event;
+import com.cntt.dbom.loveapp.Entity.Profile;
 import com.cntt.dbom.loveapp.adapter.SlidingMenuAdapter;
+import com.cntt.dbom.loveapp.design.CircleImageView;
 import com.cntt.dbom.loveapp.design.ReactionView;
 import com.cntt.dbom.loveapp.model.ItemSlideMenu;
 
@@ -40,14 +49,17 @@ public class TimeLineActivity extends ActionBarActivity {
     private ListView listViewSliding;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    private ImageView iconEmotion;
+    private ImageView iconEmotion,iconEvent;
     private EditText txtStatus;
     private Button btnInsertStatus;
     private ReactionView reactionView;
     private ListView listView;
     private List<Activity> lst;
+    private Event event;
     private ActivityAdapter adapter;
-    private TextView timeLineDays;
+    private TextView timeLineDays,eventName,eventDate;
+    private ProgressBar progressBar;
+    private CircleImageView avatarX,avatarY;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +68,14 @@ public class TimeLineActivity extends ActionBarActivity {
         lst= ActivityDAO.getListToday(TimeLineActivity.this);
         adapter = new ActivityAdapter(this,R.layout.list_activities,lst);
         listView.setAdapter(adapter);
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                AlertDialog dialog=AskOption(lst.get(position),TimeLineActivity.this);
+                dialog.show();
+                return false;
+            }
+        });
         //Init component
         listViewSliding = (ListView) findViewById(R.id.lv_sliding_menu);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -134,6 +154,7 @@ public class TimeLineActivity extends ActionBarActivity {
 
             Intent intent = new Intent(this,EventActivity.class);
             this.startActivity(intent);
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -180,13 +201,26 @@ public class TimeLineActivity extends ActionBarActivity {
     }
 
     public void initView() {
-
+        progressBar=(ProgressBar) findViewById(R.id.progressBar);
+        event= EventDAO.getList(TimeLineActivity.this).get(0);
+        eventName=(TextView) findViewById(R.id.txtEventName);
+        eventName.setText(event.getName());
+        eventDate=(TextView) findViewById(R.id.txtEventDate);
+        eventDate.setText(event.getFullDate());
+        iconEvent=(ImageView) findViewById(R.id.iconEvent);
+        iconEvent.setImageResource(event.getIcon());
         timeLineDays=(TextView) findViewById(R.id.timeLineDays);
         timeLineDays.setText("0");
-        if(ProfileDAO.getInformation(TimeLineActivity.this)!=null){
+        avatarX=(CircleImageView) findViewById(R.id.image_avatar_man);
+        avatarY=(CircleImageView) findViewById(R.id.image_avatar_women);
+        progressBar.setProgress(365-(int)event.getDaysLeft());
+        Profile profile=ProfileDAO.getInformation(TimeLineActivity.this);
+        if(profile!=null){
+            avatarX.setImageURI(Uri.parse(profile.getImgX()));
+            avatarY.setImageURI(Uri.parse(profile.getImgY()));
             Date dateNow=new Date();
             Date date;
-            String stDate=ProfileDAO.getInformation(TimeLineActivity.this).getDateBegin();
+            String stDate=profile.getDateBegin();
             try{
                 date=new SimpleDateFormat("dd/MM/yyyy").parse(stDate);
             }
@@ -217,17 +251,22 @@ public class TimeLineActivity extends ActionBarActivity {
                     String stDate=new SimpleDateFormat("dd/MM/yyyy").format(date);
                     String stTime=new SimpleDateFormat("hh:mm").format(date);
                     ActivityDAO.Insert(new Activity(txtStatus.getText().toString(),stDate,stTime,(Integer)iconEmotion.getTag()),TimeLineActivity.this);
-                    Toast.makeText(TimeLineActivity.this,"Đăng thành công",Toast.LENGTH_LONG);
+                    Toast.makeText(TimeLineActivity.this,"Đăng thành công",Toast.LENGTH_SHORT);
                     resetLoadScreen();
                 }
                 else{
-                   Toast.makeText(TimeLineActivity.this,"Không thể đăng Status. Cảm nghĩ không được bỏ trống!",Toast.LENGTH_LONG);
+                   Toast.makeText(TimeLineActivity.this,"Không thể đăng Status. Cảm nghĩ không được bỏ trống!",Toast.LENGTH_SHORT);
                 }
             }
         });
     }
 
     public void resetLoadScreen(){
+        event= EventDAO.getList(TimeLineActivity.this).get(0);
+        eventName.setText(event.getName());
+        eventDate.setText(event.getFullDate());
+        progressBar.setProgress(365-(int)event.getDaysLeft());
+        iconEvent.setImageResource(event.getIcon());
         iconEmotion.setImageResource(R.drawable.em_love);
         iconEmotion.setTag(R.drawable.em_love);
         txtStatus.setText(null);
@@ -254,5 +293,32 @@ public class TimeLineActivity extends ActionBarActivity {
             img.setImageResource(data.get(position).getIcon());
             return view;
         }
+    }
+    private AlertDialog AskOption(final Activity ac, final Context context)
+    {
+
+        AlertDialog myQuittingDialogBox =new AlertDialog.Builder(this)
+                //set message, title, and icon
+                .setTitle("Xóa Status")
+                .setMessage("Bạn có muốn xóa status này?\n"+ac.getStatus()+"\n"+ac.getTime())
+                .setIcon(R.drawable.calendar_delete)
+                .setPositiveButton("Hủy", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        dialog.dismiss();
+                    }
+
+                })
+                .setNegativeButton("Xóa", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        ActivityDAO.Delete(ac,context);
+                        Toast.makeText(TimeLineActivity.this,  "Deleted!" , Toast.LENGTH_SHORT).show();
+                        resetLoadScreen();
+                        dialog.dismiss();
+                    }
+                })
+                .create();
+        return myQuittingDialogBox;
+
     }
 }
