@@ -22,29 +22,15 @@ public class DBContext extends SQLiteOpenHelper {
                 "    BirthdayX    DATE,\n" +
                 "    NameY        VARCHAR (30) NOT NULL,\n" +
                 "    BirthdayY    DATE,\n" +
-                "    DateBegin    DATE,\n" +
-                "    Relationship VARCHAR\n" +
+                "    DateBegin    DATE         NOT NULL,\n" +
+                "    Relationship VARCHAR,\n" +
+                "    ImgX         STRING,\n" +
+                "    ImgY         STRING\n" +
                 ");\n");
-        db.execSQL("INSERT INTO Profile (\n" +
-                "                        Relationship,\n" +
-                "                        DateBegin,\n" +
-                "                        BirthdayY,\n" +
-                "                        NameY,\n" +
-                "                        BirthdayX,\n" +
-                "                        NameX\n" +
-                "                    )\n" +
-                "                    VALUES (\n" +
-                "                        'Couple Love',\n" +
-                "                        '2015-12-12',\n" +
-                "                        '1995-07-25',\n" +
-                "                        'Si',\n" +
-                "                        '1995-06-10',\n" +
-                "                        'Bom'\n" +
-                "                    );\n");
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 }

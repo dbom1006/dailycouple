@@ -9,26 +9,27 @@ import java.util.Date;
 public class Profile {
     private String nameX;
     private  String nameY;
-    private Date birthdayX;
-    private Date birthdayY;
-    private Date dateBegin;
+    private String birthdayX;
+    private String birthdayY;
+    private String dateBegin;
     private String relationship;
+    private String imgX;
+    private String imgY;
 
-    public Profile(String nameX, Date dateBegin, String relationship) {
-        this.nameX = nameX;
-        this.dateBegin = dateBegin;
-        this.relationship = relationship;
+    public String getImgX() {
+        return imgX;
     }
-    public Profile(){
 
+    public void setImgX(String imgX) {
+        this.imgX = imgX;
     }
-    public Profile(String nameX, String nameY, Date birthdayX, Date birthdayY, Date dateBegin, String relationship) {
-        this.nameX = nameX;
-        this.nameY = nameY;
-        this.birthdayX = birthdayX;
-        this.birthdayY = birthdayY;
-        this.dateBegin = dateBegin;
-        this.relationship = relationship;
+
+    public String getImgY() {
+        return imgY;
+    }
+
+    public void setImgY(String imgY) {
+        this.imgY = imgY;
     }
 
     public String getNameX() {
@@ -47,27 +48,27 @@ public class Profile {
         this.nameY = nameY;
     }
 
-    public Date getBirthdayX() {
+    public String getBirthdayX() {
         return birthdayX;
     }
 
-    public void setBirthdayX(Date birthdayX) {
+    public void setBirthdayX(String birthdayX) {
         this.birthdayX = birthdayX;
     }
 
-    public Date getBirthdatY() {
+    public String getBirthdayY() {
         return birthdayY;
     }
 
-    public void setBirthdatY(Date birthdatY) {
-        this.birthdayY = birthdatY;
+    public void setBirthdayY(String birthdayY) {
+        this.birthdayY = birthdayY;
     }
 
-    public Date getDateBegin() {
+    public String getDateBegin() {
         return dateBegin;
     }
 
-    public void setDateBegin(Date dateBegin) {
+    public void setDateBegin(String dateBegin) {
         this.dateBegin = dateBegin;
     }
 
@@ -78,4 +79,24 @@ public class Profile {
     public void setRelationship(String relationship) {
         this.relationship = relationship;
     }
+
+    public Profile(String nameX, String dateBegin, String relationship) {
+        this.nameX = nameX;
+        this.dateBegin = dateBegin;
+        this.relationship = relationship;
+    }
+    public Profile(){
+
+    }
+    public Profile(String nameX, String nameY, String birthdayX, String birthdayY, String dateBegin, String relationship,String imgX, String imgY) {
+        this.nameX = nameX;
+        this.nameY = nameY;
+        this.birthdayX = birthdayX;
+        this.birthdayY = birthdayY;
+        this.dateBegin = dateBegin;
+        this.relationship = relationship;
+        this.imgX = imgX;
+        this.imgY = imgY;
+    }
+
 }
