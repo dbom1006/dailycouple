@@ -18,9 +18,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TimeLineActivity"
-            android:label="@string/love_daily"
-            >
+        <activity
+            android:name=".TimeLineActivity"
+            android:label="@string/love_daily">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,24 +29,25 @@
         </activity>
         <activity
             android:name=".ProfileActivity"
-            android:label="@string/love_settings"
-            >
+            android:label="@string/label_profile">
             android:configChanges="orientation|screenSize">
         </activity>
         <activity
             android:name=".HistoryActivity"
-            android:label="@string/love_settings"
-            android:configChanges="orientation|screenSize">
-        </activity>
+            android:label="@string/label_history"
+            android:configChanges="orientation|screenSize"
+            ></activity>
         <activity
             android:name=".EventActivity"
-            android:label="@string/love_settings"
-            android:configChanges="orientation|screenSize">
-        </activity>
+            android:configChanges="orientation|screenSize"
+            android:label="@string/label_event"></activity>
+        <activity
+            android:name=".AboutActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/label_about"></activity>
+
 
         <!-- Menu Activities -->
-
-
 
 
         <!-- <activity android:name=".ProfileActivity"> -->
@@ -57,6 +58,7 @@
         <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
         <!-- </intent-filter> -->
         <!-- </activity> -->
+
 
     </application>
 
