@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtListEventDaysLeft"
-                android:textColor="@color/level1"
+                android:textColor="@color/primary"
                 android:text="Còn 5 ngày"
                 android:textSize="14dp"
                 android:layout_alignParentTop="true"
