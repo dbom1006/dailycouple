@@ -25,9 +25,9 @@ public class DBContext extends SQLiteOpenHelper {
                 "    NameY        VARCHAR (30) NOT NULL,\n" +
                 "    BirthdayY    DATE,\n" +
                 "    DateBegin    DATE         NOT NULL,\n" +
-                "    Relationship VARCHAR,\n" +
-                "    ImgX         STRING,\n" +
-                "    ImgY         STRING\n" +
+                "    Relationship VARCHAR (30),\n" +
+                "    ImgX         VARCHAR (255),\n" +
+                "    ImgY         VARCHAR (255)\n" +
                 ");\n");
 
         db.execSQL("CREATE TABLE Event (\n" +

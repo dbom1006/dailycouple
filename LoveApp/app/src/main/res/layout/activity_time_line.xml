@@ -139,7 +139,8 @@
                 android:layout_height="wrap_content"
                 style="@style/CustomProgressBar"
                 android:progress="70"
-                android:id="@+id/process"
+                android:id="@+id/progressBar"
+                android:max="365"
                 />
 
             <LinearLayout
