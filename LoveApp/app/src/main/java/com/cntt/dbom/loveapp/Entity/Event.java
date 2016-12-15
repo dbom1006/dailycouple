@@ -65,6 +65,10 @@ public class Event implements Comparable<Event>{
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getFullDate() {
         return txtDate;
     }
