@@ -186,6 +186,5 @@
         android:choiceMode="singleChoice"
         android:layout_gravity="start"
         android:foregroundGravity="center"
-        android:paddingStart="10dp"
         ></ListView>
 </android.support.v4.widget.DrawerLayout>

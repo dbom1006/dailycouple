@@ -29,6 +29,28 @@
     <string name="love_settings">Love Setting</string>
     <string name="Done">Done</string>
     <string name="ic_done" />
-    <string name="love_daily">Daily Love</string>
+    <string name="love_daily">DAILY LOVE</string>
     <string name="CANCEL">Cancel</string>
+    <string name="reminder">ABOUT WE</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="Input_WeOne">DucBoom</string>
+    <string name="Input_WeTwo">BacNice</string>
+    <string name="label_history">HISTORY</string>
+    <string name="label_event">MY EVENT</string>
+    <string name="label_about">ABOUT WE</string>
+    <string name="label_profile">SETTINGS PROFILE</string>
+    <string name="thanks">Thanks for used!!!</string>
+    <string name="hello">Hello World!</string>
+    <string name="emailOne">xuanbac216@gmail.com</string>
+    <string name="singYourasemeup">when i am down and oh my soul so weary when troubles come and my heart burdened be then i am still and wait here in the silence until you come, and sit awhile with me you raise me up so i can stand on mountanis you raise me up, to walk on stormy seas i am strong, when i am on your shoulders you raise me up to more then i can be you raise me up so i can stang on mountains you raise me up to walk on stormy seas i am strong when i am on your shoulders you raise me up, to more then i can be there is no life no life without its hunger each restless heart beats so imperfectly but when you come i am felled with wonder sometimes i think i glimpse eternity (you raise me up so i can stand on mountanis) i can stand on mountanis (you raise me up, to walk on stromy seas) and i am strong when i am on your shoulders you raise me up to more than i can be</string>
+    <string name="singYourasemeup1">when i am down and oh my soul so weary </string>
+    <string name="singYourasemeup2">and my heart burdened be then i am still </string>
+    <string name="singYourasemeup3">and wait here in the silence</string>
+    <string name="singYourasemeup4">until you come, and sit awhile with me </string>
+    <string name="singYourasemeup5">you raise me up so i can stand on mountanis you raise me up, to walk on stormy seas, i am strong, when i am on your shoulders </string>
+    <string name="singYourasemeup6">when troubles come</string>
+    <string name="singYourasemeup7">when troubles come</string>
+
+
 </resources>

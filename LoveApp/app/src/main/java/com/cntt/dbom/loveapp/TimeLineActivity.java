@@ -1,11 +1,9 @@
 package com.cntt.dbom.loveapp;
-
 import android.app.Fragment;
-import android.content.ClipData;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -26,7 +24,6 @@ import android.widget.TextView;
 import com.cntt.dbom.loveapp.DAL.AcitivityDAO;
 import com.cntt.dbom.loveapp.Entity.Activity;
 import com.cntt.dbom.loveapp.adapter.SlidingMenuAdapter;
-import com.cntt.dbom.loveapp.fragment.Fragment3;
 import com.cntt.dbom.loveapp.model.ItemSlideMenu;
 
 import java.util.ArrayList;
@@ -53,9 +50,9 @@ public class TimeLineActivity extends ActionBarActivity {
         listSliding = new ArrayList<>();
         //Add item for sliding list
         listSliding.add(new ItemSlideMenu(R.drawable.ic_favorite_white_48dp, "HOME"));
-        listSliding.add(new ItemSlideMenu(R.drawable.ic_setting,"SETTINGS"));
+        listSliding.add(new ItemSlideMenu(R.drawable.ic_settings_applications_white_48dp,"SETTINGS"));
         listSliding.add(new ItemSlideMenu(R.drawable.ic_event_white_48dp, "HISTORY"));
-        listSliding.add(new ItemSlideMenu(R.drawable.ic_action_about, "ABOUT"));
+        listSliding.add(new ItemSlideMenu(R.drawable.ic_assignment_ind_white_48dp, "ABOUT"));
         slidingMenuAdapter = new SlidingMenuAdapter(this, listSliding);
         listViewSliding.setAdapter(slidingMenuAdapter);
 
@@ -70,6 +67,7 @@ public class TimeLineActivity extends ActionBarActivity {
         drawerLayout.closeDrawer(listViewSliding);
 
         //Display fragment 1 when start
+
         replaceFragment(0);
         //Hanlde on item click
 
@@ -77,7 +75,8 @@ public class TimeLineActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Set title
-                setTitle(listSliding.get(position).getTitle());
+
+                setTitle("HOME");
                 //item selected
                 listViewSliding.setItemChecked(position, true);
                 //Replace fragment
@@ -150,7 +149,7 @@ public class TimeLineActivity extends ActionBarActivity {
                 intent = new Intent(TimeLineActivity.this,HistoryActivity.class);
                 break;
             case 3:
-
+                intent = new Intent(TimeLineActivity.this,AboutActivity.class);
                 break;
             default:
 
@@ -161,7 +160,7 @@ public class TimeLineActivity extends ActionBarActivity {
 //        if(null!=fragment) {
 //            FragmentManager fragmentManager = getFragmentManager();
 //            FragmentTransaction transaction = fragmentManager.beginTransaction();
-//            transaction.replace(R.id.main_content, fragment);
+//            transaction.replace(R.id.drawer_layout, fragment);
 //            transaction.addToBackStack(null);
 //            transaction.commit();
 //        }
