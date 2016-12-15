@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.cntt.dbom.loveapp.DAL.AcitivityDAO;
 import com.cntt.dbom.loveapp.Entity.Activity;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-        List<Activity> lst=Activity.getList2();
+        List<Activity> lst= AcitivityDAO.getList(HistoryActivity.this);
         ActivityAdapter adapter = new ActivityAdapter(this, R.layout.list_activities,lst);
         ListView listView = (ListView) findViewById(R.id.listHistory);
         listView.setAdapter(adapter);

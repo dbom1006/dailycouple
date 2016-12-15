@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.cntt.dbom.loveapp.DAL.AcitivityDAO;
 import com.cntt.dbom.loveapp.Entity.Activity;
 import com.cntt.dbom.loveapp.adapter.SlidingMenuAdapter;
 import com.cntt.dbom.loveapp.model.ItemSlideMenu;
@@ -33,18 +35,15 @@ public class TimeLineActivity extends ActionBarActivity {
     private ListView listViewSliding;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry","WebOS","Ubuntu","Windows7","Max OS X"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_line);
-        //ArrayAdapter adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, mobileArray);
-        List<Activity> lst=Activity.getList();
+        List<Activity> lst= AcitivityDAO.getListToday(TimeLineActivity.this);
         ActivityAdapter adapter = new ActivityAdapter(this,R.layout.list_activities,lst);
         ListView listView = (ListView) findViewById(R.id.ListActivities);
         listView.setAdapter(adapter);
-
-
         //Init component
         listViewSliding = (ListView) findViewById(R.id.lv_sliding_menu);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);

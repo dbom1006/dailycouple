@@ -34,6 +34,12 @@ public class DBContext extends SQLiteOpenHelper {
                 "    Type INTEGER,\n" +
                 "    Icon INTEGER\n" +
                 ");\n");
+        db.execSQL("CREATE TABLE Activity (\n" +
+                "    Status VARCHAR (100) NOT NULL,\n" +
+                "    Date   VARCHAR (10),\n" +
+                "    Time   VARCHAR (10),\n" +
+                "    Icon   INTEGER (10) \n" +
+                ");\n");
         db.execSQL("INSERT INTO Event (\n" +
                 "                      Icon,\n" +
                 "                      Type,\n" +
@@ -59,18 +65,6 @@ public class DBContext extends SQLiteOpenHelper {
                 "                      'Valentine'\n" +
                 "                  ),\n" +
                 "                  (\n" +
-                "                      2130837586,\n" +
-                "                      1,\n" +
-                "                      '22/02/1995',\n" +
-                "                      'Sinh nhật Anh'\n" +
-                "                  ),\n" +
-                "                  (\n" +
-                "                      2130837586,\n" +
-                "                      1,\n" +
-                "                      '28/06/1995',\n" +
-                "                      'Sinh nhật Em'\n" +
-                "                  ),\n" +
-                "                  (\n" +
                 "                      2130837588,\n" +
                 "                      1,\n" +
                 "                      '08/03/2017',\n" +
@@ -81,26 +75,49 @@ public class DBContext extends SQLiteOpenHelper {
                 "                      1,\n" +
                 "                      '01/06/2017',\n" +
                 "                      'Quốc tế thiếu nhi'\n" +
-                "                  ),\n" +
-                "                  (\n" +
-                "                      2130837587,\n" +
-                "                      2,\n" +
-                "                      '25/06/2017',\n" +
-                "                      'Dẫn gấu đi họp lớp'\n" +
-                "                  ),\n" +
-                "                  (\n" +
-                "                      2130837587,\n" +
-                "                      2,\n" +
-                "                      '15/01/2017',\n" +
-                "                      'Dẫn gấu di mua đồ tết'\n" +
-                "                  ),\n" +
-                "                  (\n" +
-                "                      2130837587,\n" +
-                "                      2,\n" +
-                "                      '12/10/2016',\n" +
-                "                      'Dẫn gấu đi xem phim'\n" +
                 "                  );\n");
-
+        db.execSQL("INSERT INTO Activity (\n" +
+                "                         Icon,\n" +
+                "                         Time,\n" +
+                "                         Date,\n" +
+                "                         Status\n" +
+                "                     )\n" +
+                "                     VALUES (\n" +
+                "                         2130837596,\n" +
+                "                         '12:04',\n" +
+                "                         '12/12/2016',\n" +
+                "                         'Cuộc đời buồn chán 1'\n" +
+                "                     ),\n" +
+                "                     (\n" +
+                "                         2130837597,\n" +
+                "                         '12:05',\n" +
+                "                         '12/12/2016',\n" +
+                "                         'Cuộc đời buồn chán 2'\n" +
+                "                     ),\n" +
+                "                     (\n" +
+                "                         2130837598,\n" +
+                "                         '12:06',\n" +
+                "                         '12/12/2016',\n" +
+                "                         'Cuộc đời buồn chán 3'\n" +
+                "                     ),\n" +
+                "                     (\n" +
+                "                         2130837599,\n" +
+                "                         '12:07',\n" +
+                "                         '12/10/2016',\n" +
+                "                         'Cuộc đời buồn chán 4'\n" +
+                "                     ),\n" +
+                "                     (\n" +
+                "                         2130837600,\n" +
+                "                         '12:08',\n" +
+                "                         '12/10/2016',\n" +
+                "                         'Cuộc đời buồn chán 5'\n" +
+                "                     ),\n" +
+                "                     (\n" +
+                "                         2130837596,\n" +
+                "                         '12:09',\n" +
+                "                         '12/10/2016',\n" +
+                "                         'Cuộc đời buồn chán 6'\n" +
+                "                     );\n");
     }
 
     @Override

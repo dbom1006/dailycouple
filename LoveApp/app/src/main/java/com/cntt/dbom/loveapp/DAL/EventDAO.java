@@ -27,6 +27,12 @@ public class EventDAO {
                 "                Name = '"+e.getName()+"'";
         db.execSQL(sql);
     }
+    public static void DeleteByName(String name, Context context){
+        SQLiteDatabase db=new DBContext(context).getReadableDatabase();
+        String sql="DELETE FROM Event\n" +
+                "        WHERE  Name = '"+name+"'";
+        db.execSQL(sql);
+    }
     public static void Insert(Event e,Context context){
         SQLiteDatabase db=new DBContext(context).getReadableDatabase();
         db.execSQL("INSERT INTO Event (\n" +
@@ -54,16 +60,16 @@ public class EventDAO {
         List<Event> lstDel=new ArrayList<>();
         for (Event e:lst) {
             if(e.getDaysLeft()<0 && e.getType()==2) lstDel.add(e);
-            if(e.getType()==1){
-                int eDay=Integer.parseInt(sdfDate.format(e.getDateFomat()));
-                int eMonth=Integer.parseInt(sdfMonth.format(e.getDateFomat()));
-                int eYear=Integer.parseInt(sdfYear.format(e.getDateFomat()));
-                if(eYear <= year && (eMonth < month || (eMonth == month && eDay<day))){
-                    e.setTxtDate(sdfDate.format(e.getDateFomat())+"/"+sdfMonth.format(e.getDateFomat())+"/"+(year+1));
+            if(e.getType()!=2) {
+                int eDay = Integer.parseInt(sdfDate.format(e.getDateFomat()));
+                int eMonth = Integer.parseInt(sdfMonth.format(e.getDateFomat()));
+                int eYear = Integer.parseInt(sdfYear.format(e.getDateFomat()));
+                if (eYear <= year && (eMonth < month || (eMonth == month && eDay < day))) {
+                    e.setTxtDate(sdfDate.format(e.getDateFomat()) + "/" + sdfMonth.format(e.getDateFomat()) + "/" + (year + 1));
+                } else if (eYear <= year && (eMonth > month || (eMonth == month && eDay >= day))) {
+                    e.setTxtDate(sdfDate.format(e.getDateFomat()) + "/" + sdfMonth.format(e.getDateFomat()) + "/" + (year));
                 }
-                else    if(eYear <= year && (eMonth > month || (eMonth == month && eDay>=day))){
-                    e.setTxtDate(sdfDate.format(e.getDateFomat())+"/"+sdfMonth.format(e.getDateFomat())+"/"+(year));
-                }
+
             }
         }
         for (Event e: lstDel) {

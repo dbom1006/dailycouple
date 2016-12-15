@@ -25,7 +25,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cntt.dbom.loveapp.DAL.EventDAO;
 import com.cntt.dbom.loveapp.DAL.ProfileDAO;
+import com.cntt.dbom.loveapp.Entity.Event;
 import com.cntt.dbom.loveapp.Entity.Profile;
 import com.cntt.dbom.loveapp.Entity.Relationship;
 import com.cntt.dbom.loveapp.design.CircleImageView;
@@ -109,7 +111,15 @@ public class ProfileActivity  extends AppCompatActivity {
                     String _birthdayY = txtBdateWomen.getText().toString();
                     String _dateBegin = btnSetDate.getText().toString();
                     String _relationship = spRela.getSelectedItem().toString();
-
+                    Event e1=new Event("Sinh nhật "+_nameX,_birthdayX,3,R.drawable.calendar_important);
+                    Event e2=new Event("Sinh nhật "+_nameY,_birthdayY,3,R.drawable.calendar_important);
+                    Event e3=new Event("Kỷ niệm ngày yêu",_dateBegin,3,R.drawable.calendar_love);
+                    EventDAO.DeleteByName(e1.getName(),ProfileActivity.this);
+                    EventDAO.DeleteByName(e2.getName(),ProfileActivity.this);
+                    EventDAO.DeleteByName(e3.getName(),ProfileActivity.this);
+                    EventDAO.Insert(e1,ProfileActivity.this);
+                    EventDAO.Insert(e2,ProfileActivity.this);
+                    EventDAO.Insert(e3,ProfileActivity.this);
                     try {
                         Profile spf = new Profile(_nameX,_nameY,_birthdayX,_birthdayY,_dateBegin,_relationship, uriX,uriY);
 
